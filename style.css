@@ -1,0 +1,887 @@
+/* =========================================
+   1. 全域變數與基礎設定
+   ========================================= */
+:root {
+    --bg-navy: #051923;
+    --k-gold: #c5a059;       /* 可不可經典金 */
+    --k-gold-light: #f0d597; /* 亮金色 */
+    --text-white: #fdf5e6;
+    --nav-height: 80px;
+    --transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-navy);
+    color: var(--text-white);
+    font-family: 'Times New Roman', serif, "微軟正黑體";
+    overflow-x: hidden;
+    line-height: 1.6;
+    
+    /* 彈性佈局核心 */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1; 
+    width: 100%;
+}
+
+/* =========================================
+   2. 星空背景與粒子系統
+   ========================================= */
+.stars-container {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: radial-gradient(circle at center, #0a2e38 0%, #051923 100%);
+    z-index: -2;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    pointer-events: none;
+    z-index: -1;
+    will-change: transform;
+}
+
+/* 星星閃爍 */
+@keyframes twinkle {
+    from { opacity: 0.2; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1.1); }
+}
+
+/* 流星軌跡：右上到左下 */
+@keyframes meteorFlow {
+    0% { opacity: 0; transform: translate(0, 0) rotate(-45deg); }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { opacity: 0; transform: translate(-120vw, 120vh) rotate(-45deg); }
+}
+
+/* 音符軌跡：左到右 */
+@keyframes noteFlow {
+    0% { opacity: 0; transform: translateX(0); }
+    10% { opacity: 0.5; }
+    90% { opacity: 0.5; }
+    100% { opacity: 0; transform: translateX(115vw); }
+}
+
+.j-music-note {
+    white-space: nowrap;
+    background-color: transparent !important;
+    display: inline-block;
+}
+
+/* 背景大 Logo */
+.bg-logo-wrapper {
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 65%;
+    max-width: 800px;
+    z-index: -1;
+    opacity: 0.25;
+    pointer-events: none;
+    transition: opacity 0.2s linear;
+}
+
+.bg-logo-wrapper img {
+    width: 100%;
+    filter: drop-shadow(0 0 20px var(--k-gold));
+}
+
+/* =========================================
+   3. 導覽列 (收縮式 Icon 選單)
+   ========================================= */
+nav {
+    height: var(--nav-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 8%;
+    background: rgba(5, 25, 35, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid var(--k-gold);
+    position: fixed;
+    top: 0; width: 100%;
+    z-index: 1000;
+}
+
+/* --- 【新增】：徹底消滅連結預設的紫色底線與顏色 --- */
+.logo-container a,
+.logo-container a:link,
+.logo-container a:visited,
+.logo-container a:hover,
+.logo-container a:active {
+    text-decoration: none !important;
+    color: var(--k-gold) !important;
+    outline: none !important;
+}
+
+.text-logo {
+    color: var(--k-gold);
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.typewriter-cursor {
+    border-right: 2px solid var(--k-gold); /* 模擬打字機的閃爍直線 */
+    animation: blink-caret 0.75s step-end infinite;
+    margin-left: 5px;
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--k-gold) }
+}
+
+.menu-toggle {
+    cursor: pointer;
+    z-index: 1100;
+}
+
+.bar {
+    display: block;
+    width: 28px; height: 2px;
+    margin: 6px auto;
+    background-color: var(--k-gold);
+    transition: var(--transition);
+}
+
+.menu-toggle.is-active .bar:nth-child(2) { opacity: 0; }
+.menu-toggle.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.menu-toggle.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+.nav-links {
+    position: fixed;
+    right: -100%; top: var(--nav-height);
+    width: 280px; height: calc(100vh - var(--nav-height));
+    background: rgba(5, 25, 35, 0.98);
+    display: flex; flex-direction: column;
+    align-items: center; padding-top: 60px;
+    border-left: 1px solid var(--k-gold);
+    list-style: none; transition: var(--transition);
+}
+
+.nav-links.active { right: 0; }
+.nav-links li { margin: 20px 0; }
+.nav-links a { color: var(--k-gold-light); text-decoration: none; font-size: 1.1rem; }
+
+/* --- 漢堡選單的子選單樣式 --- */
+.has-submenu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.submenu {
+    display: none;
+    list-style: none;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.submenu.active {
+    display: block;
+    animation: fadeIn 0.3s ease forwards;
+}
+
+.submenu li { margin: 10px 0; }
+.submenu a {
+    font-size: 1rem;
+    color: #888;
+    transition: 0.3s;
+}
+.submenu a:hover { color: var(--k-gold); }
+
+/* --- 月份切換標籤列 (Tab) --- */
+.month-selector {
+    position: fixed;
+    top: var(--nav-height);
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: rgba(5, 25, 35, 0.95);
+    border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    z-index: 900;
+    backdrop-filter: blur(10px);
+}
+
+.month-tab {
+    color: rgba(253, 245, 230, 0.5); 
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 2px;
+    padding: 5px 10px;
+    border-bottom: 2px solid transparent;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.month-tab.active, .month-tab:hover {
+    color: var(--k-gold);
+    border-bottom-color: var(--k-gold);
+}
+
+/* 切換內容容器 */
+.month-content {
+    display: none;
+    width: 100%;
+}
+.month-content.active {
+    display: block;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+/* =========================================
+   4. 首頁與 2x2 選單互動
+   ========================================= */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; 
+    overflow: hidden;    
+}
+
+.vintage-frame {
+    position: absolute;  
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    
+    width: 90%;
+    max-width: 750px;
+    
+    min-height: 500px;     
+    height: auto;         
+    
+    border: 2px solid var(--k-gold);
+    padding: 8px;
+    z-index: 1;          
+    pointer-events: none; 
+    
+    transform-origin: center center; 
+    will-change: transform, opacity;
+}
+.vintage-frame::before {
+    content: '';
+    position: absolute;
+    top: 5px; left: 5px; right: 5px; bottom: 5px;
+    border: 1px solid var(--k-gold);
+}
+.frame-content {
+    position: relative;
+    z-index: 2; 
+    text-align: center;
+    padding: 20px;
+    padding-bottom: 50px; 
+}
+
+.profile-pic {
+    width: 120px; height: 120px;
+    border-radius: 50%; border: 2px solid var(--k-gold);
+    margin-bottom: 20px; object-fit: cover;
+    box-shadow: 0 0 20px rgba(197, 160, 89, 0.4);
+}
+
+h1 {
+    font-size: 2.2em; color: var(--k-gold-light);
+    margin-bottom: 10px; letter-spacing: 2px;
+}
+
+.intro-text { font-size: 1rem; color: #ccc; }
+
+/* 按鈕與選單切換邏輯 */
+.start-trigger {
+    margin-top: 30px;
+}
+
+.main-start-btn {
+    font-size: 1.2rem; padding: 12px 35px;
+    border: 1px solid var(--k-gold);
+    color: var(--k-gold); text-decoration: none;
+    transition: var(--transition); cursor: pointer;
+}
+
+.main-start-btn:hover {
+    background: var(--k-gold); color: var(--bg-navy);
+}
+
+/* 2x2 選單樣式 */
+.main-menu-grid {
+    display: none; 
+    grid-template-columns: 1fr 1fr;
+    gap: 20px; margin-top: 35px;
+    animation: fadeIn 0.6s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.show-menu .start-trigger { display: none; }
+.show-menu .main-menu-grid { display: grid; }
+
+.menu-card {
+    text-decoration: none;
+    border: 1px solid rgba(197, 160, 89, 0.4);
+    padding: 25px 15px;
+    background: rgba(255, 255, 255, 0.03);
+    transition: var(--transition);
+}
+
+.menu-card:hover {
+    background: rgba(255, 255, 255, 0.1); 
+    border-color: var(--k-gold);
+    transform: translateY(-5px) translateZ(0);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.menu-icon { font-size: 1.8rem; color: var(--k-gold); margin-bottom: 8px; }
+.menu-title { color: var(--text-white); font-size: 0.9rem; letter-spacing: 1px; }
+
+/* =========================================
+   5. 頁尾 (Footer)
+   ========================================= */
+footer {
+    text-align: center;
+    padding: 30px;
+    color: var(--k-gold);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    border-top: 1px solid rgba(197, 160, 89, 0.2);
+    background: rgba(5, 25, 35, 0.9); 
+    width: 100%;
+    position: relative;
+    z-index: 10; 
+}
+
+/* =========================================
+   6. 響應式微調
+   ========================================= */
+@media (max-width: 480px) {
+    .frame-content { padding: 30px 15px; }
+    h1 { font-size: 1.6em; }
+    .main-menu-grid { gap: 10px; }
+}
+
+/* =========================================
+   7. 每月推薦 - 固定與流動排版
+   ========================================= */
+
+.monthly-split-layout {
+    display: flex; /* 左右並排 */
+    min-height: 100vh;
+    padding-top: calc(var(--nav-height) + 50px);
+    position: relative;
+}
+
+/* 左側固定區樣式 */
+.left-visual {
+    flex: 1; /* 佔據左半邊 */
+    position: relative;
+    border-right: 1px solid rgba(197, 160, 89, 0.2);
+}
+
+.sticky-wrapper {
+    position: sticky; /* 關鍵語法 */
+    top: calc(var(--nav-height) + 50px);
+    height: calc(100vh - var(--nav-height) - 50px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.fixed-cover {
+    width: 100%;
+    max-width: 450px;
+    border: 1px solid var(--k-gold);
+    filter: drop-shadow(0 0 30px rgba(0,0,0,0.5));
+    z-index: 2;
+}
+
+/* 右側捲動區樣式 */
+.right-content {
+    flex: 1.2; /* 右邊文字區稍微寬一點點，閱讀較舒適 */
+    padding: 60px 8% 100px;
+}
+
+.song-block {
+    margin-bottom: 120px; /* 每首歌之間的距離 */
+    padding-bottom: 60px;
+    border-bottom: 1px solid rgba(197, 160, 89, 0.1);
+}
+
+.song-no {
+    font-family: 'Times New Roman', serif;
+    font-size: 1.2rem;
+    color: var(--k-gold);
+    display: block;
+    margin-bottom: 10px;
+}
+
+.song-name {
+    font-size: 3rem;
+    color: var(--k-gold-light);
+    margin-bottom: 10px;
+}
+
+.song-desc {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #ddd;
+    text-align: justify;
+    margin-bottom: 25px;
+}
+
+/* YT 按鈕樣式 */
+.playlist-link-section {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.yt-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 35px;
+    border: 1px solid #ff0000;
+    color: #ff0000;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.yt-button:hover {
+    background: #ff0000;
+    color: #fff;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+}
+
+/* 手機版適配：取消固定，改回上下排列 */
+@media (max-width: 992px) {
+    .monthly-split-layout { flex-direction: column; }
+    .sticky-wrapper { position: relative; height: auto; padding: 40px 20px; }
+    .left-visual { border-right: none; border-bottom: 1px solid var(--k-gold); }
+}/* =========================================
+/* =========================================
+   7. 每月推薦 - 固定與流動排版
+   ========================================= */
+
+.monthly-split-layout {
+    display: flex; /* 左右並排 */
+    min-height: 100vh;
+    padding-top: var(--nav-height);
+    position: relative;
+}
+
+/* 左側固定區樣式 */
+.left-visual {
+    flex: 1; /* 佔據左半邊 */
+    position: relative;
+    border-right: 1px solid rgba(197, 160, 89, 0.2);
+}
+
+.sticky-wrapper {
+    position: sticky; /* 關鍵語法 */
+    top: var(--nav-height);
+    height: calc(100vh - var(--nav-height));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* 改為從頂部開始排列 */
+    padding: 80px 40px 40px; /* 增加頂部間距，讓整體上移 */
+    overflow-y: auto; /* 當內容過長時，允許內部上下捲動 */
+    -ms-overflow-style: none; /* 隱藏 IE/Edge 的捲軸 */
+    scrollbar-width: none; /* 隱藏 Firefox 的捲軸 */
+}
+
+/* 隱藏 Chrome/Safari/Opera 的捲軸，保持星空背景美觀 */
+.sticky-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.fixed-cover {
+    width: 100%;
+    max-width: 450px;
+    border: 1px solid var(--k-gold);
+    filter: drop-shadow(0 0 30px rgba(0,0,0,0.5));
+    z-index: 2;
+    /* 假設您的封面是正方形，設定 1 / 1。若是其他比例可改為如 16 / 9 或 4 / 3 */
+    aspect-ratio: 1 / 1; 
+    object-fit: cover;
+    border-radius: 4px; /* 稍微加一點圓角讓視覺更柔和 (可選) */
+}
+
+/* 每月推薦圖片語意化容器 */
+.hero-figure {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px; /* 增加圖片與文字的間距 */
+}
+
+/* 新增：每月心得文字 */
+.monthly-review {
+    color: var(--text-white);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    max-width: 400px; /* 限制寬度避免文字太散 */
+    text-align: center;
+    opacity: 0.85;
+}
+
+.theme-tag {
+    color: var(--k-gold);
+    letter-spacing: 3px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    text-align: center; /* 確保長標籤換行時依然保持置中 */
+    line-height: 1.4;
+}
+
+/* 右側捲動區樣式 */
+.right-content {
+    flex: 1.2; /* 右邊文字區稍微寬一點點，閱讀較舒適 */
+    padding: 60px 8% 100px;
+}
+
+.song-block {
+    margin-bottom: 120px; /* 每首歌之間的距離 */
+    padding-bottom: 60px;
+    border-bottom: 1px solid rgba(197, 160, 89, 0.1);
+}
+
+.song-no {
+    font-family: 'Times New Roman', serif;
+    font-size: 1.2rem;
+    color: var(--k-gold);
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* 歌曲標題與頭像的橫向排版容器 */
+.song-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    gap: 15px;
+}
+
+.song-title-group {
+    flex: 1; /* 讓文字區塊自動填滿剩餘空間 */
+}
+
+.song-name {
+    font-size: 2.8rem;
+    color: var(--k-gold-light);
+    margin-bottom: 5px;
+    line-height: 1.2;
+}
+
+.artist-name {
+    font-size: 1.2rem;
+    color: #ccc;
+}
+
+.artist-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--k-gold);
+    box-shadow: 0 0 15px rgba(197, 160, 89, 0.2);
+    flex-shrink: 0; /* 防止圖片被壓縮 */
+}
+
+/* 緊湊型的音樂播放器 */
+.compact-audio {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 20px;
+    outline: none;
+    border-radius: 30px;
+    opacity: 0.9;
+}
+
+/* YouTube 嵌入播放器 */
+.youtube-embed {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* 自動保持影片標準比例 */
+    border: none;
+    border-radius: 8px; /* 稍微給一點圓角質感更好 */
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* YouTube MV 導覽卡片 (取代無法嵌入的影片) */
+.yt-mv-link {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+    text-decoration: none;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 16 / 9;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(197, 160, 89, 0.3);
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.yt-mv-link:hover {
+    transform: translateY(-3px);
+    border-color: var(--k-gold);
+}
+
+.yt-mv-link img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.yt-mv-link:hover img {
+    opacity: 0.4;
+}
+
+.play-overlay {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ff0000;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1rem;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+    transition: transform 0.3s;
+}
+
+.yt-mv-link:hover .play-overlay {
+    transform: translate(-50%, -50%) scale(1.05);
+}
+
+.song-desc {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #ddd;
+    text-align: justify;
+    margin-bottom: 25px;
+}
+
+/* YT 按鈕樣式 */
+.playlist-link-section {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.yt-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 35px;
+    border: 1px solid #ff0000;
+    color: #ff0000;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.yt-button:hover {
+    background: #ff0000;
+    color: #fff;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+}
+
+/* 手機版適配：取消固定，改回上下排列 */
+@media (max-width: 992px) {
+    .monthly-split-layout { flex-direction: column; padding-top: 10px; }
+    .sticky-wrapper { position: relative; height: auto; padding: 20px 15px; overflow-y: visible; }
+    .left-visual { border-right: none; border-bottom: 1px solid rgba(197, 160, 89, 0.2); padding-bottom: 30px; }
+    .right-content { padding: 30px 5% 60px; }
+    .song-block { margin-bottom: 60px; padding-bottom: 30px; }
+    .song-name { font-size: 2rem; line-height: 1.3; }
+    .song-header-row { gap: 10px; }
+}
+.vertical-title {
+    position: fixed;
+    /* 調整位置：避開左上角 Logo，並往下移一點避開導覽列 */
+    left: 40px; 
+    top: calc(var(--nav-height) + 50px + 40px); 
+    
+    /* 核心修正：強制直打文字並保持正立 */
+    writing-mode: vertical-rl; 
+    text-orientation: upright; 
+    
+    font-size: 3rem; /* 稍微縮小一點點，避免壓迫感 */
+    color: rgba(197, 160, 89, 0.1); /* 保持極淡的金色，作為背景裝飾 */
+    letter-spacing: 12px;
+    z-index: 0; /* 確保它在最底層，不會擋住文字 */
+    pointer-events: none; /* 讓滑鼠可以穿過它，點擊不到它 */
+    font-family: "微軟正黑體", sans-serif;
+    font-weight: bold;
+}
+
+/* 手機版隱藏背景直向大標題，避免重疊擋住文字 */
+@media (max-width: 992px) {
+    .vertical-title {
+        display: none;
+    }
+}
+
+/* 主題歌單專用：較大的圓角正方形預覽封面 */
+.song-preview-cover {
+    width: 130px;
+    height: 130px;
+    border-radius: 16px;
+    object-fit: cover;
+    border: 2px solid var(--k-gold);
+    box-shadow: 0 0 15px rgba(197, 160, 89, 0.2);
+    flex-shrink: 0;
+}
+@media (max-width: 480px) {
+    .song-preview-cover {
+        width: 90px;
+        height: 90px;
+    }
+}
+
+/* 中文翻譯專屬樣式：星空灰藍色，與白色日文做出質感區隔 */
+.zh-translate {
+    color: #8bb8d6;
+    font-size: 0.95em;
+}
+
+/* =========================================
+   8. 主題歌單專屬樣式
+   ========================================= */
+.theme-section {
+    max-width: 1200px;
+    margin: calc(var(--nav-height) + 4rem) auto 4rem auto;
+    padding: 0 2rem;
+}
+.section-title {
+    text-align: center;
+    color: #f0d597;
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    letter-spacing: 2px;
+}
+.theme-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+}
+.theme-card {
+    text-decoration: none;
+    display: block;
+    transition: transform 0.3s ease;
+}
+.theme-card:hover {
+    transform: translateY(-10px);
+}
+.theme-img-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 2px solid rgba(197, 160, 89, 0.5);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+.theme-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+.theme-card:hover .theme-img-wrapper img {
+    transform: scale(1.1);
+}
+.theme-hover-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 10px;
+}
+.theme-card:hover .theme-hover-overlay {
+    opacity: 1;
+}
+.theme-card-title {
+    text-align: center;
+    margin-top: 1.2rem;
+    color: #f0d597;
+    font-size: 1.3rem;
+}
+@media (max-width: 768px) {
+    .theme-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================
+   9. 施工中頁面專屬樣式 (Shorts)
+   ========================================= */
+.construction-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - var(--nav-height) - 100px);
+    text-align: center;
+    padding: 20px;
+}
+.construction-title {
+    font-size: 2.5rem;
+    color: var(--k-gold-light);
+    margin-bottom: 40px;
+    letter-spacing: 3px;
+}
+.loading-dots::after {
+    content: '';
+    animation: animate-dots 1.5s infinite step-start;
+}
+@keyframes animate-dots {
+    0% { content: ''; }
+    25% { content: '。'; }
+    50% { content: '。。'; }
+    75%, 100% { content: '。。。'; }
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>每月推薦 - 音樂幽浮</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="stars-container"></div>
+    
+    <nav>
+        <div class="logo-container">
+            <a href="index.html">
+                <div class="text-logo">音樂幽浮</div>
+            </a>
+        </div>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <ul class="nav-links" id="nav-list">
+            <li><a href="index.html">首頁</a></li>
+            <li class="has-submenu">
+                <a href="#" id="monthly-menu-toggle">每月推薦 <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-left: 5px;"></i></a>
+                <ul class="submenu" id="monthly-submenu">
+                    <li><a href="monthly.html">2026 1~6月</a></li>
+                    <li style="margin: 10px 15px;"><hr style="border: 0; border-top: 1px solid rgba(197,160,89,0.3);"></li>
+                    <li><a href="monthly-2025-h2.html">2025 7~12月</a></li>
+                    <li><a href="monthly-2025-h1.html">2025 1~6月</a></li>
+                </ul>
+            </li>
+            <li><a href="playlist.html">主題歌單</a></li>
+            <li><a href="shorts.html">Shorts</a></li>
+        </ul>
+    </nav>
+
+<div class="page-wrapper">
+    <!-- 月份切換標籤列 -->
+    <div class="month-selector" id="month-tabs-container"></div>
+
+    <!-- 動態生成內容的容器 -->
+    <div id="dynamic-content-container"></div>
+
+    <footer>
+        <p>&copy; 2026 音樂幽浮. Designed with Starry Night Style.</p>
+    </footer>
+</div>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
