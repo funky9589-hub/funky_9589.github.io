@@ -216,14 +216,16 @@ nav {
     background: rgba(5, 25, 35, 0.95);
     border-bottom: 1px solid rgba(197, 160, 89, 0.2);
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     gap: 30px;
+    padding: 0 20px;
     z-index: 900;
     backdrop-filter: blur(10px);
     overflow-x: auto;
     white-space: nowrap;
     scrollbar-width: none; /* 隱藏 Firefox 捲軸 */
+    -webkit-overflow-scrolling: touch; /* 讓 iOS 手機滑動更順暢 */
 }
 /* 隱藏 Chrome/Safari 捲軸 */
 .month-selector::-webkit-scrollbar {
@@ -239,6 +241,7 @@ nav {
     border-bottom: 2px solid transparent;
     transition: var(--transition);
     cursor: pointer;
+    flex-shrink: 0; /* 防止標籤被壓縮，確保能正常產生捲軸 */
 }
 
 .month-tab.active, .month-tab:hover {
@@ -246,11 +249,10 @@ nav {
     border-bottom-color: var(--k-gold);
 }
 
-/* 手機版適配：讓月份標籤可左右滑動且不被切斷 */
-@media (max-width: 768px) {
+/* 電腦版適配：如果螢幕夠大，標籤才置中 */
+@media (min-width: 992px) {
     .month-selector {
-        justify-content: flex-start;
-        padding: 0 20px;
+        justify-content: center;
     }
 }
 

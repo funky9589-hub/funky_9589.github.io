@@ -141,7 +141,7 @@ const themeData = {
     "theme-04": {
         id: "theme-04",
         title: "邪氣樂團 King gnu 牛羚之王",
-        coverImg: "img/theme/Kinggnu.jpg",
+        coverImg: "img/theme/King Gnu.jpg",
         playlistUrl: "https://www.youtube.com/playlist?list=PL0GKCkSU2vniDduuyXTbiQrZfzgSqb_pK",
         tag: "#KING GNU SELECTION",
         review: "有在接觸jpop的各位想必對King gnu並不陌生<br>跟同時期的鬍子男相比<br>King gnu 則是充滿了滿滿的邪氣<br>不過也有像《BOY》那樣孩子氣的曲風<br>主唱井口理和常田大希一高一低的嗓音配合<br>更是讓樂曲更豐富的元素<br><br>gnu這個單字可以翻譯為非洲水牛或是牛羚<br>有時我都會叫他們牛羚之王<br>希望這個歌單能讓大家更深入了解King gnu<br><br>那以下是這次的歌單",
