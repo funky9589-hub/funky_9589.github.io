@@ -221,6 +221,13 @@ nav {
     gap: 30px;
     z-index: 900;
     backdrop-filter: blur(10px);
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none; /* 隱藏 Firefox 捲軸 */
+}
+/* 隱藏 Chrome/Safari 捲軸 */
+.month-selector::-webkit-scrollbar {
+    display: none;
 }
 
 .month-tab {
@@ -237,6 +244,14 @@ nav {
 .month-tab.active, .month-tab:hover {
     color: var(--k-gold);
     border-bottom-color: var(--k-gold);
+}
+
+/* 手機版適配：讓月份標籤可左右滑動且不被切斷 */
+@media (max-width: 768px) {
+    .month-selector {
+        justify-content: flex-start;
+        padding: 0 20px;
+    }
 }
 
 /* 切換內容容器 */
@@ -684,6 +699,15 @@ footer {
     font-size: 1.1rem;
     box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
     transition: transform 0.3s;
+}
+
+/* 手機版適配：縮小 MV 播放按鈕 */
+@media (max-width: 768px) {
+    .play-overlay {
+        font-size: 0.85rem;
+        padding: 8px 16px;
+        width: max-content;
+    }
 }
 
 .yt-mv-link:hover .play-overlay {
