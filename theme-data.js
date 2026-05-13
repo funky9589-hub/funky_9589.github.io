@@ -268,21 +268,21 @@ const themeData = {
                 no: "04",
                 name: "メリーゴーランド",
                 artist: "優里",
-                ytId: "m3VnVRHOMZM",
+                ytId: "eWeSqrRk-gs",
                 desc: "アイシテルをもう何度 私、口にしたのだろう<br><span class=\"zh-translate\">「我愛你」這句話，我究竟在口中重複了多少回</span><br>寂しさだけがこの胸に残っているのです<br><span class=\"zh-translate\">結果只剩下寂寞，留存在我的心中</span>"
             },
             {
                 no: "05",
                 name: "ビリミリオン",
                 artist: "優里",
-                ytId: "uxYLXaXtH9I",
+                ytId: "vUsikBoa8i0",
                 desc: "僕が⽣きてるこの時間は 50億以上の価値があるでしょう<br><span class=\"zh-translate\">我活著的這段時間，應該有超過五十億的價值吧</span><br>⽣きているだけでまるもうけ<br><span class=\"zh-translate\">光是活著，本身就是最大的收穫</span>"
             },
             {
                 no: "06",
                 name: "ピーターパン",
                 artist: "優里",
-                ytId: "vUsikBoa8i0",
+                ytId: "9qfPF4fpiHE",
                 desc: "大人の言う常識なんてものは 丸めて捨てちまえ<br><span class=\"zh-translate\">大人們口中的「常識」這種東西，揉成一團直接扔掉就好</span><br>おとぎ話みたいなハッピーエンドを思い描いて生きていくんだ<br><span class=\"zh-translate\">依然追尋著宛如童話的幸福結局，懷抱著夢想繼續活下去</span>"
             }
         ]

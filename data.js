@@ -196,7 +196,7 @@ const monthlyData = {
                 artist: "BellyJay",
                 avatar: "https://yt3.googleusercontent.com/ytc/AIdro_n5K6vI196f-KJwW7hjXuMVaysQbPIGBuqces2sruHTZQ=s160-c-k-c0x00ffffff-no-rj",
                 ytId: "1i5S2ZzmZ04",
-                desc: "洗腦抓耳的旋律<br>讓我們在微光中從早到晚吧!!",
+                desc: "洗腦抓耳的旋律<br>讓我們在微光中從早跳到晚吧!!",
                 date: "2026.02.TBA"
             }
         ]
@@ -232,7 +232,7 @@ const monthlyData = {
                 artist: "Yuuri",
                 avatar: "https://yt3.googleusercontent.com/2j-yd5HnUHfzfbaptBikd2RVnGbzG6aQIycm8bT4RIz-beNCkwJsN2HVTQreEds014WOMrM5=s160-c-k-c0x00ffffff-no-rj",
                 ytId: "wTbrW044Tp0",
-                desc: "Yur睽偉已久出的新歌<br>歌詞講述著沒有意識到對方是多麼重要的存在<br>直至失去才有所發現。",
+                desc: "Yuuri睽偉已久出的新歌<br>歌詞講述著沒有意識到對方是多麼重要的存在<br>直至失去才有所發現。",
                 date: "2026.01.13"
             },
             {
@@ -249,7 +249,7 @@ const monthlyData = {
                 name: "アドレナ",
                 artist: "YOASOBI",
                 avatar: "https://yt3.googleusercontent.com/WrZt7XVfe0ZoFRtYCxbOM0gSWp2baxrwxw4o1HQIPJZvamwJXHj6dLjbtJmn369lnl8GdY1k=s160-c-k-c0x00ffffff-no-rj",
-                ytId: "DeAD2b1x3tQ",
+                ytId: "NKhw0qOLMms",
                 desc: "作為「花樣少年少女」OP主題曲<br>YOASOBI這次也是強勢出擊<br>這首歌的旋律充滿了青春的活力<br>歌詞則講述了青春期的迷茫和成長<br>非常適合這部動畫的主題",
                 date: "2026.01.03"
             },
