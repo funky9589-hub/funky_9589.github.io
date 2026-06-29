@@ -3,6 +3,69 @@
    ========================================= */
 
 const monthlyData = {
+  "month-05": {
+    "id": "month-05",
+    "title": "2026 5月",
+    "coverImg": "img/monthly/2026/05.jpg",
+    "tag": "#2026 MAY SELECTION",
+    "review": "新星宛如繁星般閃爍<br>這個五月份聽了很多的作品<br>蠻多知名度不高，但是非常不錯的寶藏歌手<br>其中有一首是來自台灣創作者的歌曲<br>是在新一代展中發現的<br>此外Ayumu Imazu的新歌也是令人震驚<br>這個人真是才華洋溢阿<br><br>那以下是這次的歌單",
+    "songs": [
+      {
+        "no": "01",
+        "name": "一二三",
+        "artist": "Penthouse",
+        "avatar": "https://yt3.googleusercontent.com/yHRvC8FWgE7u5cvz4ymL5SBzD_kwQmQS8JsjcitXLDEtPX-AlknD7kmzEYVajOGf3t-89vwkww=s900-c-k-c0x00ffffff-no-rj",
+        "ytId": "pdcdLtdT98s",
+        "desc": "動畫《入間同學入魔了！》第四季片頭曲，充滿魔性且旋律極其輕快洗腦的曲風！",
+        "date": "2026.05.TBA"
+      },
+      {
+        "no": "02",
+        "name": "誓い",
+        "artist": "Leina",
+        "avatar": "https://yt3.googleusercontent.com/1mJMIBnl9FtYt6wkcn4VpOPjFgEAhQ70zvLKkygjbnGXNd-98Yqh43hNM46TGir34qW7BVAIuw=s160-c-k-c0x00ffffff-no-rj",
+        "ytId": "1KnySdlZHJU",
+        "desc": "電視動畫《日本三國》的片尾曲，以溫柔且深具穿透力的歌聲訴說著誓言。",
+        "date": "2026.05.TBA"
+      },
+      {
+        "no": "03",
+        "name": "しんそう",
+        "artist": "KoRiN/重音テトSV",
+        "avatar": "https://yt3.googleusercontent.com/epfq7crwuMIJShEyyeQTOr2ApmWYXxPKJsGLWWCOHKXB0qbF8QvMrc19NVbqQ2AK5RJFLy29kg=s900-c-k-c0x00ffffff-no-rj",
+        "ytId": "s5ftWy4sEeo",
+        "desc": "來自台灣創作者的寶藏 V家原創歌曲，是在新一代設計展中無意間發現的超棒作品！",
+        "date": "2026.05.TBA"
+      },
+      {
+        "no": "04",
+        "name": "閃光",
+        "artist": "[Alexandros]",
+        "avatar": "https://yt3.googleusercontent.com/1kqfy7XwznQpMbK2vKSrujPhDCnZwE1BW8I8bxhV5UtwhgLMFYTVSZr886s3v7Vur-xLbfVH=s900-c-k-c0x00ffffff-no-rj",
+        "ytId": "xfG6L9I7N8I",
+        "desc": "動畫電影《機動戰士鋼彈 閃光的哈薩威》主題曲，強烈節奏與熱血感爆棚的搖滾神曲。",
+        "date": "2026.05.TBA"
+      },
+      {
+        "no": "05",
+        "name": "CLASSIC",
+        "artist": "Ayumu Imazu",
+        "avatar": "https://yt3.googleusercontent.com/iNQ1MyldrUh2FPDAHpmEAaotvvRXu8mrNFIfWpM-QVGlwXW_ZKUD3wtaRJERSXJBPSbdCWQoyRg=s900-c-k-c0x00ffffff-no-rj",
+        "ytId": "toD2V6Sohhc",
+        "desc": "來自第二張個人專輯的主打歌。Ayumu Imazu 的新歌再次展現了他驚人的才華與極強的節奏感。",
+        "date": "2026.05.TBA"
+      },
+      {
+        "no": "06",
+        "name": "omoi",
+        "artist": "音田雅則",
+        "avatar": "https://yt3.googleusercontent.com/tse11Et2EH4nsBNMPUlWw4zkH5xCv1DvjpjJa5d7vN6p2pj-lXfDzzM4tNMY44yn0Gds5Z4epgk=s900-c-k-c0x00ffffff-no-rj",
+        "ytId": "4gxZ_SVTk5c",
+        "desc": "寫實且動人的抒情歌，描寫在深夜便利商店、副駕駛座等日常場景中，對重要之人最真摯的思念。",
+        "date": "2026.05.TBA"
+      }
+    ]
+  },
   "month-04": {
     "id": "month-04",
     "title": "2026 4月",

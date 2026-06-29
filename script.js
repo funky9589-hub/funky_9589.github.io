@@ -151,7 +151,12 @@ const artistAvatarDB = {
   "yama✕WurtS": "https://yt3.googleusercontent.com/gPlnR1luCJOw4lzOYHUi3hGOf7lnd4h-KzBljCywpF6TQT_87Xdzisn25htWkEHPt93HTv2v_w=s120-c-k-c0x00ffffff-no-rj",
   "星野源": "https://yt3.googleusercontent.com/-VWSeEPw96gcVG14L4oYfuq-0veCaNz5RdTGeJV3vs9cDvvjNBCYwnXXMAdki5Exne9gMUZFUA=s160-c-k-c0x00ffffff-no-rj",
   "indigo la Endfeat.にしな": "https://yt3.googleusercontent.com/ytc/AIdro_l9MUVXu_P02IPN7TzOLd2VZRbpNwdu3cCjIEbOiLxujVg=s160-c-k-c0x00ffffff-no-rj",
-  "シド": "https://yt3.googleusercontent.com/ytc/AIdro_lvgt98jmJ3doZcTAKmgT8be1XiouEm8Y1sVIU6B1jLHg=s120-c-k-c0x00ffffff-no-rj"
+  "シド": "https://yt3.googleusercontent.com/ytc/AIdro_lvgt98jmJ3doZcTAKmgT8be1XiouEm8Y1sVIU6B1jLHg=s120-c-k-c0x00ffffff-no-rj",
+  "Penthouse": "https://yt3.googleusercontent.com/yHRvC8FWgE7u5cvz4ymL5SBzD_kwQmQS8JsjcitXLDEtPX-AlknD7kmzEYVajOGf3t-89vwkww=s900-c-k-c0x00ffffff-no-rj",
+  "KoRiN/重音テトSV": "https://yt3.googleusercontent.com/epfq7crwuMIJShEyyeQTOr2ApmWYXxPKJsGLWWCOHKXB0qbF8QvMrc19NVbqQ2AK5RJFLy29kg=s900-c-k-c0x00ffffff-no-rj",
+  "[Alexandros]": "https://yt3.googleusercontent.com/1kqfy7XwznQpMbK2vKSrujPhDCnZwE1BW8I8bxhV5UtwhgLMFYTVSZr886s3v7Vur-xLbfVH=s900-c-k-c0x00ffffff-no-rj",
+  "Ayumu Imazu": "https://yt3.googleusercontent.com/iNQ1MyldrUh2FPDAHpmEAaotvvRXu8mrNFIfWpM-QVGlwXW_ZKUD3wtaRJERSXJBPSbdCWQoyRg=s900-c-k-c0x00ffffff-no-rj",
+  "音田雅則": "https://yt3.googleusercontent.com/tse11Et2EH4nsBNMPUlWw4zkH5xCv1DvjpjJa5d7vN6p2pj-lXfDzzM4tNMY44yn0Gds5Z4epgk=s900-c-k-c0x00ffffff-no-rj"
 };
 
 // --- 3. 主要初始化邏輯 ---
