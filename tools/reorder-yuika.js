@@ -32,7 +32,7 @@ const formattedSongs = [
     no: "04",
     name: "そばにいて。",
     artist: "ユイカ",
-    ytId: "F553P1-p3P0",
+    ytId: "AG1o7NN2Dwo",
     desc: "2人一緒に笑っちゃうよ<br><span class=\"zh-translate\">我們兩個總會一起笑出來呢</span><br>君がそばにいて<br><span class=\"zh-translate\">只要你陪在我身邊</span>"
   },
   {

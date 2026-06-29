@@ -156,7 +156,10 @@ const artistAvatarDB = {
   "KoRiN/重音テトSV": "https://yt3.googleusercontent.com/epfq7crwuMIJShEyyeQTOr2ApmWYXxPKJsGLWWCOHKXB0qbF8QvMrc19NVbqQ2AK5RJFLy29kg=s900-c-k-c0x00ffffff-no-rj",
   "[Alexandros]": "https://yt3.googleusercontent.com/1kqfy7XwznQpMbK2vKSrujPhDCnZwE1BW8I8bxhV5UtwhgLMFYTVSZr886s3v7Vur-xLbfVH=s900-c-k-c0x00ffffff-no-rj",
   "Ayumu Imazu": "https://yt3.googleusercontent.com/iNQ1MyldrUh2FPDAHpmEAaotvvRXu8mrNFIfWpM-QVGlwXW_ZKUD3wtaRJERSXJBPSbdCWQoyRg=s900-c-k-c0x00ffffff-no-rj",
-  "音田雅則": "https://yt3.googleusercontent.com/tse11Et2EH4nsBNMPUlWw4zkH5xCv1DvjpjJa5d7vN6p2pj-lXfDzzM4tNMY44yn0Gds5Z4epgk=s900-c-k-c0x00ffffff-no-rj"
+  "音田雅則": "https://yt3.googleusercontent.com/tse11Et2EH4nsBNMPUlWw4zkH5xCv1DvjpjJa5d7vN6p2pj-lXfDzzM4tNMY44yn0Gds5Z4epgk=s900-c-k-c0x00ffffff-no-rj",
+  "SG": "https://yt3.googleusercontent.com/2COFpQKHjctfOhBbKk39bvcsUoWQrTF2pZQ4wBie6K06EyPFscpwvTHN_d-ZjlVJXBTuaNjCdUQ=s900-c-k-c0x00ffffff-no-rj",
+  "アンジェラ・アキ": "https://yt3.googleusercontent.com/uVFIUMEkOyR51ZBm9JIdt1b_yuILPcg1mh5LXbRFb3PkJtzKwOYBZf6ghPj5mOIYXvLm4r7r=s900-c-k-c0x00ffffff-no-rj",
+  "優里 × tuki.": "https://yt3.googleusercontent.com/2j-yd5HnUHfzfbaptBikd2RVnGbzG6aQIycm8bT4RIz-beNCkwJsN2HVTQreEds014WOMrM5=s160-c-k-c0x00ffffff-no-rj"
 };
 
 // --- 3. 主要初始化邏輯 ---
