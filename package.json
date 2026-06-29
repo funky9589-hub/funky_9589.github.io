@@ -1,0 +1,13 @@
+{
+  "name": "funky-9589-music-ufo",
+  "version": "1.0.0",
+  "description": "音樂幽浮 J-POP 網站資料庫編譯與新增工具",
+  "type": "module",
+  "scripts": {
+    "build": "node tools/build.js",
+    "add": "node tools/add-song.js",
+    "server": "npx -y http-server ./ -c-1"
+  },
+  "author": "Alan",
+  "license": "ISC"
+}

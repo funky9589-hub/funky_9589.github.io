@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>主題歌單 - 音樂幽浮</title>
+    <title>{{PAGE_TITLE}}</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="stars-container"></div>
-    
+    {{BG_LOGO}}
 
     <nav>
         <div class="logo-container">
@@ -39,21 +39,3 @@
     </nav>
 
     <div class="page-wrapper">
-        <!-- 主題歌單總覽區塊 (3個一排) -->
-        <section id="theme-playlists" class="theme-section">
-            <h2 class="section-title">主題歌單推薦</h2>
-            <!-- 列表將由 JavaScript 動態生成於此 -->
-            <div class="theme-grid" id="theme-grid-container"></div>
-        </section>
-
-        <!-- 點擊進入後的單一主題詳細內容容器 (預設隱藏) -->
-        <div id="theme-detail-container" style="display: none;"></div>
-        <footer>
-            <p>&copy; 2026 音樂幽浮. Designed with Starry Night Style.</p>
-        </footer>
-    </div>
-
-    <script src="theme-data.js"></script>
-    <script src="script.js"></script>
-</body>
-</html>
