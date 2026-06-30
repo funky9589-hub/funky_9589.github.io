@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { execSync } from 'child_process';
 
 const workspaceDir = '.'; // Run from root of workspace
 
@@ -130,3 +131,11 @@ if (fs.existsSync(srcScriptPath)) {
 }
 
 console.log('\nBuild complete! All files generated successfully.');
+
+// 4. Generate sitemap.xml
+console.log('\nGenerating sitemap.xml...');
+try {
+  execSync('node tools/generate-sitemap.js', { stdio: 'inherit' });
+} catch (err) {
+  console.error('Sitemap generation failed:', err.message);
+}
