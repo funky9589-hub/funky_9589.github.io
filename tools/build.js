@@ -15,7 +15,7 @@ const footerTemplate = fs.readFileSync(footerTemplatePath, 'utf-8');
 const pages = [
   {
     name: 'index.html',
-    title: '音樂幽浮的日文歌網站',
+    title: '音樂幽浮',
     contentFile: 'index.content.html',
     bgLogo: true,
     scripts: ['script.js']
