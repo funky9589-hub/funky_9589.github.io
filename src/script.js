@@ -296,12 +296,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     const safeContent = escapeHtml(c.content).replace(/\n/g, '<br>');
 
                     return `
-                        <div class="comment-item" style="margin-bottom: 18px; padding: 18px; border-radius: 8px; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(197, 160, 89, 0.12); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); transition: all 0.3s ease;">
-                            <div class="comment-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding-bottom: 6px;">
-                                <span style="color: var(--k-gold); font-weight: 700; font-size: 0.95rem; font-family: 'Times New Roman', serif, '微軟正黑體';"><i class="far fa-user" style="margin-right: 6px;"></i>${safeNickname}</span>
-                                <span style="color: rgba(255, 255, 255, 0.35); font-size: 0.8rem; font-family: 'Courier New', monospace;">${formattedDate}</span>
+                        <div class="comment-item">
+                            <div class="comment-header">
+                                <span class="comment-nickname"><i class="far fa-user" style="margin-right: 6px;"></i>${safeNickname}</span>
+                                <span class="comment-time">${formattedDate}</span>
                             </div>
-                            <div style="color: #d8d8d8; font-size: 0.92rem; line-height: 1.6; word-break: break-all; font-family: sans-serif;">
+                            <div class="comment-body">
                                 ${safeContent}
                             </div>
                         </div>
@@ -309,8 +309,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 }).join('');
             } else {
                 listHtml = `
-                    <div style="text-align: center; color: rgba(255, 255, 255, 0.3); padding: 40px 20px; font-style: italic; font-size: 0.9rem; border: 1px dashed rgba(197, 160, 89, 0.15); border-radius: 8px; background: rgba(255, 255, 255, 0.01);">
-                        <i class="far fa-paper-plane" style="font-size: 1.5rem; color: var(--k-gold); opacity: 0.5; margin-bottom: 10px; display: block;"></i>
+                    <div class="comment-empty-state">
+                        <i class="far fa-paper-plane comment-empty-icon"></i>
                         目前這裡靜悄悄的，快來留下您的看法吧！
                     </div>
                 `;
@@ -318,29 +318,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // 渲染整個留言區 DOM
             container.innerHTML = `
-                <div class="comments-list" style="max-height: 550px; overflow-y: auto; padding-right: 8px; margin-bottom: 25px;">
+                <div class="comments-list">
                     ${listHtml}
                 </div>
 
-                <form id="comment-form" style="background: rgba(12, 26, 48, 0.4); backdrop-filter: blur(8px); border: 1px solid rgba(197, 160, 89, 0.25); padding: 22px; border-radius: 8px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);">
-                    <h3 style="color: var(--k-gold); font-size: 1.05rem; margin-top: 0; margin-bottom: 18px; font-family: 'Times New Roman', serif, '微軟正黑體'; font-weight: 700; border-left: 3px solid var(--k-gold); padding-left: 10px; line-height: 1;"><i class="fas fa-edit"></i> 發表留言</h3>
+                <form id="comment-form" class="comment-form-container">
+                    <h3 class="comment-form-title"><i class="fas fa-edit"></i> 發表留言</h3>
                     
                     <div style="margin-bottom: 15px;">
-                        <input type="text" id="comment-nickname" required placeholder="暱稱 (必填，最多 20 字)" maxlength="20" 
-                            style="width: 100%; padding: 10px 14px; border-radius: 4px; background: rgba(0, 0, 0, 0.25); border: 1px solid rgba(197, 160, 89, 0.2); color: #fff; box-sizing: border-box; outline: none; font-size: 0.9rem; font-family: sans-serif; transition: all 0.3s;"
-                            onfocus="this.style.borderColor='var(--k-gold)'; this.style.boxShadow='0 0 8px rgba(197,160,89,0.25)'" 
-                            onblur="this.style.borderColor='rgba(197, 160, 89, 0.2)'; this.style.boxShadow='none'">
+                        <input type="text" id="comment-nickname" required placeholder="暱稱 (必填，最多 20 字)" maxlength="20" class="comment-input">
                     </div>
 
                     <div style="margin-bottom: 18px;">
-                        <textarea id="comment-content" required placeholder="分享您的觀後感或對歌曲的看法... (最多 500 字)" rows="4" maxlength="500"
-                            style="width: 100%; padding: 10px 14px; border-radius: 4px; background: rgba(0, 0, 0, 0.25); border: 1px solid rgba(197, 160, 89, 0.2); color: #fff; box-sizing: border-box; outline: none; font-size: 0.9rem; font-family: sans-serif; resize: vertical; line-height: 1.5; transition: all 0.3s;"
-                            onfocus="this.style.borderColor='var(--k-gold)'; this.style.boxShadow='0 0 8px rgba(197,160,89,0.25)'" 
-                            onblur="this.style.borderColor='rgba(197, 160, 89, 0.2)'; this.style.boxShadow='none'"></textarea>
+                        <textarea id="comment-content" required placeholder="分享您的觀後感或對歌曲的看法... (最多 500 字)" rows="4" maxlength="500" class="comment-textarea"></textarea>
                     </div>
 
                     <div style="text-align: right;">
-                        <button type="submit" class="yt-button" style="border-color: var(--k-gold); color: var(--k-gold); padding: 8px 24px; font-size: 0.9rem; cursor: pointer; background: transparent; transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 8px; font-family: 'Times New Roman', serif, '微軟正黑體';">
+                        <button type="submit" class="comment-submit-btn">
                             <i class="fas fa-paper-plane"></i> 送出留言
                         </button>
                     </div>
