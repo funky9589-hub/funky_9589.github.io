@@ -185,7 +185,9 @@ const artistAvatarDB = {
   "音田雅則": "https://yt3.googleusercontent.com/tse11Et2EH4nsBNMPUlWw4zkH5xCv1DvjpjJa5d7vN6p2pj-lXfDzzM4tNMY44yn0Gds5Z4epgk=s900-c-k-c0x00ffffff-no-rj",
   "SG": "https://yt3.googleusercontent.com/2COFpQKHjctfOhBbKk39bvcsUoWQrTF2pZQ4wBie6K06EyPFscpwvTHN_d-ZjlVJXBTuaNjCdUQ=s900-c-k-c0x00ffffff-no-rj",
   "アンジェラ・アキ": "https://yt3.googleusercontent.com/uVFIUMEkOyR51ZBm9JIdt1b_yuILPcg1mh5LXbRFb3PkJtzKwOYBZf6ghPj5mOIYXvLm4r7r=s900-c-k-c0x00ffffff-no-rj",
-  "優里 × tuki.": "https://yt3.googleusercontent.com/2j-yd5HnUHfzfbaptBikd2RVnGbzG6aQIycm8bT4RIz-beNCkwJsN2HVTQreEds014WOMrM5=s160-c-k-c0x00ffffff-no-rj"
+  "優里 × tuki.": "https://yt3.googleusercontent.com/2j-yd5HnUHfzfbaptBikd2RVnGbzG6aQIycm8bT4RIz-beNCkwJsN2HVTQreEds014WOMrM5=s160-c-k-c0x00ffffff-no-rj",
+  "春茶": "https://yt3.googleusercontent.com/MA6jb039EieBeuKkzpvoW5WFOSypV66mCqyrgUyjh1_qoKBhm3aiYqtAVU0l1zkJ-t1e0DOP=s900-c-k-c0x00ffffff-no-rj",
+  "SHO-SENSEI!!": "https://yt3.googleusercontent.com/42DTdBoRhn-lJLHBuMq3-lkQu09N7HZwcMrrr4qD-LN8d7SniakXHMOZP7nyf8YpuNZlePQR=s900-c-k-c0x00ffffff-no-rj"
 };
 
 // --- 3. 主要初始化邏輯 ---
