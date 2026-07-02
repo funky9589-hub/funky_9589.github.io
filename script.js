@@ -165,6 +165,11 @@ const artistAvatarDB = {
 // --- 3. 主要初始化邏輯 ---
 document.addEventListener('DOMContentLoaded', () => {
     
+    // === Supabase 留言板初始化 ===
+    const supabaseUrl = 'https://yydjvqhlfofmmepqqhlz.supabase.co';
+    const supabaseKey = 'sb_publishable__XYuCBkQzG9OA_3DbMXTDQ_1RBG3WSw';
+    const supabase = window.supabase ? window.supabase.createClient(supabaseUrl, supabaseKey) : null;
+
     createComplexBackground(); // 啟動星空
     typeWriterEffect();        // 啟動打字機
 
@@ -291,9 +296,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // === Supabase 留言板初始化與動態載入邏輯 ===
-    const supabaseUrl = 'https://yydjvqhlfofmmepqqhlz.supabase.co';
-    const supabaseKey = 'sb_publishable__XYuCBkQzG9OA_3DbMXTDQ_1RBG3WSw';
-    const supabase = window.supabase ? window.supabase.createClient(supabaseUrl, supabaseKey) : null;
 
     // HTML 跳脫防禦 (XSS 防護)
     function escapeHtml(str) {
