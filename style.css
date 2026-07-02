@@ -916,10 +916,12 @@ footer {
    10. 留言交流區 (Custom Comment System)
    ========================================= */
 .comments-section {
-    max-width: 760px; /* 閱讀與留言的最舒適寬度 */
+    max-width: 1200px;
+    width: 100%;
     margin: 60px auto 40px auto;
-    padding: 0 20px;
+    padding: 0 5%;
     clear: both;
+    box-sizing: border-box;
 }
 
 .comments-section h2 {
