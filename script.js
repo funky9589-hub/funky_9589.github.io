@@ -3,6 +3,32 @@
    功能：星空生成、打字機開場、漢堡選單、按鈕開關、捲動穿梭特效
    ========================================= */
 
+// --- 0. 全局錯誤捕獲，方便前台除錯 ---
+window.onerror = function (message, source, lineno, colno, error) {
+    const errorDiv = document.createElement('div');
+    errorDiv.style.position = 'fixed';
+    errorDiv.style.top = '10px';
+    errorDiv.style.left = '10px';
+    errorDiv.style.background = 'rgba(255, 0, 0, 0.9)';
+    errorDiv.style.color = 'white';
+    errorDiv.style.padding = '15px';
+    errorDiv.style.zIndex = '999999';
+    errorDiv.style.fontSize = '12px';
+    errorDiv.style.borderRadius = '5px';
+    errorDiv.style.boxShadow = '0 4px 15px rgba(0,0,0,0.5)';
+    errorDiv.style.maxHeight = '80vh';
+    errorDiv.style.overflowY = 'auto';
+    errorDiv.style.wordBreak = 'break-all';
+    errorDiv.style.fontFamily = 'monospace';
+    errorDiv.innerHTML = `<strong>[音樂幽浮 JS 錯誤偵測]</strong><br>
+    訊息: ${message}<br>
+    檔案: ${source.split('/').pop()}<br>
+    位置: 行 ${lineno}, 列 ${colno}<br>
+    ${error ? '<br>堆疊:<br>' + error.stack.replace(/\n/g, '<br>') : ''}`;
+    document.body.appendChild(errorDiv);
+    return false;
+};
+
 // --- 1. 打字機效果：讓標題一個一個字跳出來 ---
 function typeWriterEffect() {
     const textElement = document.getElementById('typewriter-text');

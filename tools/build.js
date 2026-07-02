@@ -75,8 +75,9 @@ pages.forEach(page => {
   }
 
   // Build footer
+  const version = Date.now();
   const scriptTags = page.scripts
-    .map(script => `<script src="${script}"></script>`)
+    .map(script => `<script src="${script}?v=${version}"></script>`)
     .join('\n    ');
   const footer = footerTemplate.replace('{{SCRIPTS}}', scriptTags);
 
