@@ -3,7 +3,7 @@ import path from 'path';
 
 const workspaceDir = '.';
 const sitemapPath = path.join(workspaceDir, 'sitemap_index.xml');
-const baseUrl = 'https://funky9589.github.io';
+const baseUrl = 'https://funky9589-hub.github.io/funky_9589.github.io';
 
 const pages = [
   { path: '', priority: '1.0' },
