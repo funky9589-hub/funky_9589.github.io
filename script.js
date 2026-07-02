@@ -286,30 +286,152 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 初始載入若無 hash，預設載入第一個月份的留言板
         if (!window.location.hash || !window.location.hash.startsWith('#month-')) {
-            loadCusdis(firstMonthId, firstMonthTitle);
+            loadComments(firstMonthId);
         }
     }
 
-    // === Cusdis 留言板動態載入邏輯 ===
-    function loadCusdis(pageId, pageTitle) {
-        const container = document.getElementById('cusdis-container');
+    // === Supabase 留言板初始化與動態載入邏輯 ===
+    const supabaseUrl = 'https://yydjvqhlfofmmepqqhlz.supabase.co';
+    const supabaseKey = 'sb_publishable__XYuCBkQzG9OA_3DbMXTDQ_1RBG3WSw';
+    const supabase = window.supabase ? window.supabase.createClient(supabaseUrl, supabaseKey) : null;
+
+    // HTML 跳脫防禦 (XSS 防護)
+    function escapeHtml(str) {
+        return str
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#039;');
+    }
+
+    async function loadComments(pageId) {
+        const container = document.getElementById('comments-container');
         if (!container) return;
 
+        // 顯示載入動畫
         container.innerHTML = `
-            <div id="cusdis_thread"
-              data-host="https://cusdis.com"
-              data-app-id="0c36c1ed-74b8-420e-a0ec-299bd816afe8"
-              data-page-id="${pageId}"
-              data-page-url="${window.location.origin}${window.location.pathname}#${pageId}"
-              data-page-title="${pageTitle}"
-              data-theme="dark"
-              style="width: 100%; min-height: 150px; margin-top: 20px;"
-            ></div>
+            <div style="text-align: center; color: var(--k-gold); padding: 30px; font-family: 'Times New Roman', serif, '微軟正黑體'; font-size: 1rem;">
+                <i class="fas fa-spinner fa-spin"></i> 正在連線至幽浮資料庫...
+            </div>
         `;
 
-        // 如果 Cusdis 腳本已經載入完成，呼叫它的初始化函數重新渲染
-        if (window.CUSDIS && typeof window.CUSDIS.initial === 'function') {
-            window.CUSDIS.initial();
+        if (!supabase) {
+            container.innerHTML = `<div style="text-align: center; color: #ff6b6b; padding: 20px;">資料庫未成功載入，請重新整理網頁！</div>`;
+            return;
+        }
+
+        try {
+            // 從 Supabase 抓取該分頁的留言
+            const { data: comments, error } = await supabase
+                .from('comments')
+                .select('*')
+                .eq('page_id', pageId)
+                .order('created_at', { ascending: true });
+
+            if (error) throw error;
+
+            // 組合留言列表 HTML
+            let listHtml = '';
+            if (comments && comments.length > 0) {
+                listHtml = comments.map(c => {
+                    const date = new Date(c.created_at);
+                    const formattedDate = `${date.getFullYear()}/${String(date.getMonth() + 1).padStart(2, '0')}/${String(date.getDate()).padStart(2, '0')} ${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}`;
+                    
+                    const safeNickname = escapeHtml(c.nickname);
+                    const safeContent = escapeHtml(c.content).replace(/\n/g, '<br>');
+
+                    return `
+                        <div class="comment-item" style="margin-bottom: 18px; padding: 18px; border-radius: 8px; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(197, 160, 89, 0.12); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); transition: all 0.3s ease;">
+                            <div class="comment-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding-bottom: 6px;">
+                                <span style="color: var(--k-gold); font-weight: 700; font-size: 0.95rem; font-family: 'Times New Roman', serif, '微軟正黑體';"><i class="far fa-user" style="margin-right: 6px;"></i>${safeNickname}</span>
+                                <span style="color: rgba(255, 255, 255, 0.35); font-size: 0.8rem; font-family: 'Courier New', monospace;">${formattedDate}</span>
+                            </div>
+                            <div style="color: #d8d8d8; font-size: 0.92rem; line-height: 1.6; word-break: break-all; font-family: sans-serif;">
+                                ${safeContent}
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            } else {
+                listHtml = `
+                    <div style="text-align: center; color: rgba(255, 255, 255, 0.3); padding: 40px 20px; font-style: italic; font-size: 0.9rem; border: 1px dashed rgba(197, 160, 89, 0.15); border-radius: 8px; background: rgba(255, 255, 255, 0.01);">
+                        <i class="far fa-paper-plane" style="font-size: 1.5rem; color: var(--k-gold); opacity: 0.5; margin-bottom: 10px; display: block;"></i>
+                        目前這裡靜悄悄的，快來留下您的看法吧！
+                    </div>
+                `;
+            }
+
+            // 渲染整個留言區 DOM
+            container.innerHTML = `
+                <div class="comments-list" style="max-height: 550px; overflow-y: auto; padding-right: 8px; margin-bottom: 25px;">
+                    ${listHtml}
+                </div>
+
+                <form id="comment-form" style="background: rgba(12, 26, 48, 0.4); backdrop-filter: blur(8px); border: 1px solid rgba(197, 160, 89, 0.25); padding: 22px; border-radius: 8px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);">
+                    <h3 style="color: var(--k-gold); font-size: 1.05rem; margin-top: 0; margin-bottom: 18px; font-family: 'Times New Roman', serif, '微軟正黑體'; font-weight: 700; border-left: 3px solid var(--k-gold); padding-left: 10px; line-height: 1;"><i class="fas fa-edit"></i> 發表留言</h3>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <input type="text" id="comment-nickname" required placeholder="暱稱 (必填，最多 20 字)" maxlength="20" 
+                            style="width: 100%; padding: 10px 14px; border-radius: 4px; background: rgba(0, 0, 0, 0.25); border: 1px solid rgba(197, 160, 89, 0.2); color: #fff; box-sizing: border-box; outline: none; font-size: 0.9rem; font-family: sans-serif; transition: all 0.3s;"
+                            onfocus="this.style.borderColor='var(--k-gold)'; this.style.boxShadow='0 0 8px rgba(197,160,89,0.25)'" 
+                            onblur="this.style.borderColor='rgba(197, 160, 89, 0.2)'; this.style.boxShadow='none'">
+                    </div>
+
+                    <div style="margin-bottom: 18px;">
+                        <textarea id="comment-content" required placeholder="分享您的觀後感或對歌曲的看法... (最多 500 字)" rows="4" maxlength="500"
+                            style="width: 100%; padding: 10px 14px; border-radius: 4px; background: rgba(0, 0, 0, 0.25); border: 1px solid rgba(197, 160, 89, 0.2); color: #fff; box-sizing: border-box; outline: none; font-size: 0.9rem; font-family: sans-serif; resize: vertical; line-height: 1.5; transition: all 0.3s;"
+                            onfocus="this.style.borderColor='var(--k-gold)'; this.style.boxShadow='0 0 8px rgba(197,160,89,0.25)'" 
+                            onblur="this.style.borderColor='rgba(197, 160, 89, 0.2)'; this.style.boxShadow='none'"></textarea>
+                    </div>
+
+                    <div style="text-align: right;">
+                        <button type="submit" class="yt-button" style="border-color: var(--k-gold); color: var(--k-gold); padding: 8px 24px; font-size: 0.9rem; cursor: pointer; background: transparent; transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 8px; font-family: 'Times New Roman', serif, '微軟正黑體';">
+                            <i class="fas fa-paper-plane"></i> 送出留言
+                        </button>
+                    </div>
+                </form>
+            `;
+
+            // 綁定表單送出事件
+            const form = document.getElementById('comment-form');
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const nicknameInput = document.getElementById('comment-nickname');
+                const contentInput = document.getElementById('comment-content');
+                const submitBtn = form.querySelector('button[type="submit"]');
+
+                const nickname = nicknameInput.value.trim();
+                const content = contentInput.value.trim();
+
+                if (!nickname || !content) return;
+
+                // 停用按鈕，顯示送出中
+                submitBtn.disabled = true;
+                submitBtn.style.opacity = '0.6';
+                submitBtn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> 送出中...`;
+
+                try {
+                    const { error: insertError } = await supabase
+                        .from('comments')
+                        .insert([{ page_id: pageId, nickname, content }]);
+
+                    if (insertError) throw insertError;
+
+                    // 重新載入留言清單
+                    await loadComments(pageId);
+                } catch (err) {
+                    console.error('Submit comment error:', err);
+                    alert('留言送出失敗，請檢查網路連線或稍後再試！');
+                    submitBtn.disabled = false;
+                    submitBtn.style.opacity = '1';
+                    submitBtn.innerHTML = `<i class="fas fa-paper-plane"></i> 送出留言`;
+                }
+            });
+
+        } catch (err) {
+            console.error('Load comments error:', err);
+            container.innerHTML = `<div style="text-align: center; color: #ff6b6b; padding: 20px;">載入留言失敗，請重新整理網頁再試！</div>`;
         }
     }
 
@@ -331,9 +453,9 @@ document.addEventListener('DOMContentLoaded', () => {
             tab.classList.add('active');
         });
 
-        // 載入該月份的 Cusdis 留言板
+        // 載入該月份的 Supabase 留言板
         if (typeof monthlyData !== 'undefined' && monthlyData[targetId]) {
-            loadCusdis(targetId, monthlyData[targetId].title);
+            loadComments(targetId);
         }
 
         // 切換後回到頂端
@@ -433,11 +555,11 @@ document.addEventListener('DOMContentLoaded', () => {
             <!-- 留言交流區 -->
             <div class="comments-section" style="max-width: 1200px; margin: 40px auto; padding: 0 5%; clear: both;">
                 <h2 style="font-family: 'Times New Roman', serif, '微軟正黑體'; color: var(--k-gold); border-bottom: 1px solid rgba(197,160,89,0.3); padding-bottom: 10px; margin-bottom: 20px; font-size: 1.5rem;"><i class="far fa-comments"></i> 留言交流區</h2>
-                <div id="cusdis-container"></div>
+                <div id="comments-container"></div>
             </div>`;
             
-            // 載入該主題的 Cusdis 留言板
-            loadCusdis(themeId, data.title);
+            // 載入該主題的 Supabase 留言板
+            loadComments(themeId);
             
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
