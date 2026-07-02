@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://funky9589-hub.github.io/funky_9589.github.io/sitemap_index.xml

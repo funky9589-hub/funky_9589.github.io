@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 const workspaceDir = '.';
-const sitemapPath = path.join(workspaceDir, 'sitemap.xml');
+const sitemapPath = path.join(workspaceDir, 'sitemap_index.xml');
 const baseUrl = 'https://funky9589-hub.github.io/funky_9589.github.io';
 
 const pages = [
@@ -26,7 +26,7 @@ ${pages.map(page => `  <url>
 </urlset>`;
 
   fs.writeFileSync(sitemapPath, xml, 'utf-8');
-  console.log(`- Generated sitemap.xml at ${sitemapPath}`);
+  console.log(`- Generated sitemap_index.xml at ${sitemapPath}`);
 }
 
 generateSitemap();
