@@ -16,7 +16,7 @@ const monthlyData = {
         "artist": "米津玄師",
         "avatar": "",
         "ytId": "YjPMupS1Lg4",
-        "desc": "今だけは誰の声も聞こえない場所へ行こう<br>就這一次，去到聽不見任何人聲音的地方吧。<br>寄せ書きもそっと机にしまって澄み渡る青い方へ<br>將留言冊悄然鎖進桌屜，朝著澄澈湛藍的彼方遠去。<br>僕らは今日ただ一羽の夢見がちな烏になって<br>今天，我們化作一隻愛做夢的烏鴉。<br>光を受けて続くこの道を辿り直していく<br>沐浴在光中，重新踏上那條綿延的歸途。",
+        "desc": "今だけは誰の声も聞こえない場所へ行こう<br><span class=\"zh-translate\">就這一次，去到聽不見任何人聲音的地方吧。</span><br>寄せ書きもそっと机にしまって澄み渡る青い方へ<br><span class=\"zh-translate\">將留言冊悄然鎖進桌屜，朝著澄澈湛藍的彼方遠去。</span><br>僕らは今日ただ一羽の夢見がちな烏になって<br><span class=\"zh-translate\">今天，我們化作一隻愛做夢的烏鴉。</span><br>光を受けて続くこの道を辿り直していく<br><span class=\"zh-translate\">沐浴在光中，重新踏上那條綿延的歸途。</span>",
         "date": "2026.06"
       },
       {
@@ -25,7 +25,7 @@ const monthlyData = {
         "artist": "SHO-SENSEI!!",
         "avatar": "",
         "ytId": "VfrIXXicc2w",
-        "desc": "永遠に僕と笑ってよ<br>永遠陪著我一起笑吧<br>どうせどうせこの世界に大切なものはそこまでないから<br>反正這個世界上，真正重要的東西本來就沒有那麼多<br>忘れられない人は忘れなくていい<br>那些無法忘記的人，就不必勉強自己遺忘<br>一緒にならきっと明日を待てるさ<br>只要有你在身邊，我們一定能一起等待明天的到來",
+        "desc": "永遠に僕と笑ってよ<br><span class=\"zh-translate\">永遠陪著我一起笑吧</span><br>どうせどうせこの世界に大切なものはそこまでないから<br><span class=\"zh-translate\">反正這個世界上，真正重要的東西本來就沒有那麼多</span><br>忘れられない人は忘れなくていい<br><span class=\"zh-translate\">那些無法忘記的人，就不必勉強自己遺忘</span><br>一緒にならきっと明日を待てるさ<br><span class=\"zh-translate\">只要有你在身邊，我們一定能一起等待明天的到來</span>",
         "date": "2026.06"
       },
       {
@@ -34,7 +34,7 @@ const monthlyData = {
         "artist": "春茶",
         "avatar": "",
         "ytId": "2i6C22fN_14",
-        "desc": "私の恋 is over それは真っ赤な色<br>我的戀情已經結束，那是一抹鮮紅的顏色<br>神様、どうか \"あなた\" 幸せにしてよね<br>神啊，請一定要讓「你」獲得幸福<br>好意 is over 涙が枯れる音<br>這份愛意已經結束，只剩下淚水流盡的聲音<br>わざとらしくね さよなら<br>故作瀟灑地，說聲再見吧<br>私、女の子だから<br>因為，我是個女孩子",
+        "desc": "私の恋 is over それは真っ赤な色<br><span class=\"zh-translate\">我的戀情已經結束，那是一抹鮮紅的顏色</span><br>神様、どうか \"あなた\" 幸せにしてよね<br><span class=\"zh-translate\">神啊，請一定要讓「你」獲得幸福</span><br>好意 is over 涙が枯れる音<br><span class=\"zh-translate\">這份愛意已經結束，只剩下淚水流盡的聲音</span><br>わざとらしくね さよなら<br><span class=\"zh-translate\">故作瀟灑地，說聲再見吧</span><br>私、女の子だから<br><span class=\"zh-translate\">因為，我是個女孩子</span>",
         "date": "2026.06"
       },
       {
@@ -43,7 +43,7 @@ const monthlyData = {
         "artist": "tuki.",
         "avatar": "",
         "ytId": "-23SgNWEAvM",
-        "desc": "緊急事態だ僕ら拡声して歌う<br>緊急狀況，所以我們放聲高歌<br>愛の数が全然足りなすぎんだ<br>這世界上的愛，真的遠遠不夠<br>反芻心中じゃ痛み止まない<br>光是一再反覆咀嚼回憶，無法讓疼痛停止<br>全部を吐き出すんだ<br>把心裡的一切，全都喊出來吧<br>四方八方 叫んだ SOS が<br>朝著四面八方呼喊出的 SOS<br>一人じゃないよって誰かの希望なんです<br>會成為某個人「你並不孤單」的希望",
+        "desc": "緊急事態だ僕ら拡声して歌う<br><span class=\"zh-translate\">緊急狀況，所以我們放聲高歌</span><br>愛の数が全然足りなすぎんだ<br><span class=\"zh-translate\">這世界上的愛，真的遠遠不夠</span><br>反芻心中じゃ痛み止まない<br><span class=\"zh-translate\">光是一再反覆咀嚼回憶，無法讓疼痛停止</span><br>全部を吐き出すんだ<br><span class=\"zh-translate\">把心裡的一切，全都喊出來吧</span><br>四方八方 叫んだ SOS が<br><span class=\"zh-translate\">朝著四面八方呼喊出的 SOS</span><br>一人じゃないよって誰かの希望なんです<br><span class=\"zh-translate\">會成為某個人「你並不孤單」的希望</span>",
         "date": "2026.06"
       },
       {
@@ -52,7 +52,7 @@ const monthlyData = {
         "artist": "星街すいせい",
         "avatar": "",
         "ytId": "9ijHd0knEww",
-        "desc": "Star gazing 星をみる少女<br>Star gazing，仰望星空的少女<br>いたいけなあなたの瞳に<br>在你那純真無邪的眼眸裡<br>Star gazing まだ映ってますか<br>Star gazing，如今仍映照著星光嗎？<br>胸を張って会いに行けるように 今<br>為了能夠昂首胸膛地與你相見，從現在開始",
+        "desc": "Star gazing 星をみる少女<br><span class=\"zh-translate\">Star gazing，仰望星空的少女</span><br>いたいけなあなたの瞳に<br><span class=\"zh-translate\">在你那純真無邪的眼眸裡</span><br>Star gazing まだ映ってますか<br><span class=\"zh-translate\">Star gazing，如今仍映照著星光嗎？</span><br>胸を張って会いに行けるように 今<br><span class=\"zh-translate\">為了能夠昂首胸膛地與你相見，從現在開始</span>",
         "date": "2026.06"
       }
     ]
