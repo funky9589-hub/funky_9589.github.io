@@ -137,9 +137,15 @@ document.addEventListener('DOMContentLoaded', () => {
         let tabsHtml = '';
         let contentsHtml = '';
         let isFirst = true; // 第一個月預設開啟
+        let firstMonthId = '';
+        let firstMonthTitle = '';
 
         for (const [monthId, data] of Object.entries(monthlyData)) {
             const activeClass = isFirst ? 'active' : '';
+            if (isFirst) {
+                firstMonthId = monthId;
+                firstMonthTitle = data.title;
+            }
             
             // 生成上方標籤
             tabsHtml += `<a href="#${monthId}" class="month-tab ${activeClass}" data-target="${monthId}">${data.title}</a>`;
@@ -203,6 +209,34 @@ document.addEventListener('DOMContentLoaded', () => {
         
         tabsContainer.innerHTML = tabsHtml;
         contentContainer.innerHTML = contentsHtml;
+
+        // 初始載入若無 hash，預設載入第一個月份的留言板
+        if (!window.location.hash || !window.location.hash.startsWith('#month-')) {
+            loadCusdis(firstMonthId, firstMonthTitle);
+        }
+    }
+
+    // === Cusdis 留言板動態載入邏輯 ===
+    function loadCusdis(pageId, pageTitle) {
+        const container = document.getElementById('cusdis-container');
+        if (!container) return;
+
+        container.innerHTML = `
+            <div id="cusdis_thread"
+              data-host="https://cusdis.com"
+              data-app-id="0c36c1ed-74b8-420e-a0ec-299bd816afe8"
+              data-page-id="${pageId}"
+              data-page-url="${window.location.origin}${window.location.pathname}#${pageId}"
+              data-page-title="${pageTitle}"
+              data-theme="dark"
+              style="width: 100%; min-height: 150px; margin-top: 20px;"
+            ></div>
+        `;
+
+        // 如果 Cusdis 腳本已經載入完成，呼叫它的初始化函數重新渲染
+        if (window.CUSDIS && typeof window.CUSDIS.initial === 'function') {
+            window.CUSDIS.initial();
+        }
     }
 
     // === 每月推薦頁面的「月份無縫切換」邏輯 ===
@@ -222,6 +256,11 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll(`.month-tab[data-target="${targetId}"]`).forEach(tab => {
             tab.classList.add('active');
         });
+
+        // 載入該月份的 Cusdis 留言板
+        if (typeof monthlyData !== 'undefined' && monthlyData[targetId]) {
+            loadCusdis(targetId, monthlyData[targetId].title);
+        }
 
         // 切換後回到頂端
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -310,12 +349,21 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="playlist-link-section">
                         <p>探索完整歌單</p>
                         <a href="${data.playlistUrl || 'https://www.youtube.com/@%E9%9F%B3%E6%A8%82%E5%B9%BD%E6%B5%AE'}" target="_blank" class="yt-button">
-                            <i class="fab fa-youtube"></i>
-                            <span>LISTEN ON YOUTUBE</span>
+                             <i class="fab fa-youtube"></i>
+                             <span>LISTEN ON YOUTUBE</span>
                         </a>
                     </div>
                 </article>
-            </main>`;
+            </main>
+            
+            <!-- 留言交流區 -->
+            <div class="comments-section" style="max-width: 1200px; margin: 40px auto; padding: 0 5%; clear: both;">
+                <h2 style="font-family: 'Times New Roman', serif, '微軟正黑體'; color: var(--k-gold); border-bottom: 1px solid rgba(197,160,89,0.3); padding-bottom: 10px; margin-bottom: 20px; font-size: 1.5rem;"><i class="far fa-comments"></i> 留言交流區</h2>
+                <div id="cusdis-container"></div>
+            </div>`;
+            
+            // 載入該主題的 Cusdis 留言板
+            loadCusdis(themeId, data.title);
             
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
