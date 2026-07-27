@@ -116,8 +116,21 @@ pages.forEach(page => {
   const contentPath = path.join(workspaceDir, 'src/pages', page.contentFile);
   const content = fs.readFileSync(contentPath, 'utf-8');
 
+  // Google Analytics (GA4) Tag
+  const gaId = 'G-SHFEYWLL18';
+  const gaSnippet = `<!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=${gaId}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', '${gaId}');
+    </script>`;
+
   // Build header
   let header = headerTemplate
+    .replace('{{GOOGLE_ANALYTICS}}', gaSnippet)
     .replaceAll('{{PAGE_TITLE}}', page.title)
     .replaceAll('{{META_DESCRIPTION}}', page.description)
     .replaceAll('{{CANONICAL_URL}}', page.canonical);
