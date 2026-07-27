@@ -1,4 +1,49 @@
 {
+  "theme-10": {
+    "id": "theme-10",
+    "title": "春茶 - 從翻唱開始的歌手夢",
+    "coverImg": "img/theme/春茶cover.png",
+    "playlistUrl": "https://www.youtube.com/playlist?list=PL0GKCkSU2vniKufOPiKZAcabz26r1KmMO",
+    "tag": "#HARUTYA SELECTION",
+    "review": "說起歌曲的 cover<br>不知大家腦中第一個想到的歌手是誰呢<br>如果說有那麼一個代表人物<br>那我的回答會是這名歌手---春茶<br><br>早在 2013 年就開始在 Niconico 動畫及 YouTube 陸續上傳翻唱作品。<br><br>而有趣的是<br>在 2017 年後<br>她與作曲家 kobasolo 的合作讓她大放異彩<br>甜美的歌聲<br>配上與原曲不同的編曲風格<br>讓聽眾們有煥然一新的感受<br>我想，這也是 cover 帶給我的意義<br><br>對於翻唱歌曲（Cover）這件事，大家最在乎的特質是什麼呢？<br>是希望能聽到超越原唱的驚艷，還是喜歡截然不同的編曲？<br>歡迎在下方留言，與大家一同討論！<br><br>那以下是這次的歌單",
+    "songs": [
+      {
+        "no": "01",
+        "name": "恋音と雨空",
+        "artist": "AAA (Full Covered by 春茶)",
+        "ytId": "apOelWh2vJU",
+        "desc": "「好きだよ」と伝えればいいのに<br><span class=\"zh-translate\">明明只要說出一句「我喜歡你」就好了</span><br>願う先、怖くていえず<br><span class=\"zh-translate\">卻害怕那之後的結果，而始終說不出口</span><br>「好きじゃない?」「好きだよ?」が<br><span class=\"zh-translate\">「你不喜歡我嗎？」「我喜歡你喔？」</span><br>揺れる恋と雨空<br><span class=\"zh-translate\">就像陰晴不定的戀情</span><br>君との時間が一秒でも長くなるなら<br><span class=\"zh-translate\">如果能和你多相處哪怕一秒鐘</span><br>ずっとじゃなくていい<br><span class=\"zh-translate\">就算不是永遠也沒關係</span><br>雨が止むまでこのままいさせて。。。<br><span class=\"zh-translate\">就讓我這樣待在你身邊，直到雨停吧……</span>"
+      },
+      {
+        "no": "02",
+        "name": "トドカナイカラ",
+        "artist": "平井堅 (Full Covered by 春茶)",
+        "ytId": "3WUUFplHrVk",
+        "desc": "毎日君を抱きしめても<br><span class=\"zh-translate\">即使每天都將你擁入懷中</span><br>どんなに強く抱きしめても<br><span class=\"zh-translate\">無論抱得多麼緊</span><br>0.1㎜の不安が挟まったまま<br><span class=\"zh-translate\">心裡仍夾著那僅僅 0.1 毫米的不安</span><br>毎日君に恋するため毎日君を抱きしめよう<br><span class=\"zh-translate\">為了每天都能重新愛上你，我想每天都擁抱著你</span><br>忘れるから移ろうから届かないから<br><span class=\"zh-translate\">因為人會遺忘、會改變，也總有無法傳達的心意</span><br>大好きと笑って欲しい<br><span class=\"zh-translate\">所以，希望你能笑著對我說一句：「我最喜歡你。」</span>"
+      },
+      {
+        "no": "03",
+        "name": "フラレガイガール",
+        "artist": "さユり (Full Covered by 春茶)",
+        "ytId": "DT3XQ-FNUdE",
+        "desc": "わたしをフッてんじゃないよバカ<br><span class=\"zh-translate\">你這個笨蛋，不准甩掉我啊！</span><br>フッていいわけがないでしょ<br><span class=\"zh-translate\">你怎麼可能有資格甩掉我呢？</span><br>たまに倦怠期予防のサプライズも忘れないでと<br><span class=\"zh-translate\">偶爾也別忘了準備一些防止感情倦怠的小驚喜啊</span><br><br>たしかに言ってはいたけれど<br><span class=\"zh-translate\">雖然我確實是這麼說過</span><br>フッていいわけがないでしょ<br><span class=\"zh-translate\">但也不是叫你跟我分手啊！</span><br>あなたの分際でなにをバカなこと<br><span class=\"zh-translate\">憑你這傢伙，到底在說什麼啊</span><br>言い出してさ<br><span class=\"zh-translate\">居然還真的說出口了</span><br><br>もういいから<br><span class=\"zh-translate\">好了啦</span><br>そろそろ種明かししにきてよ<br><span class=\"zh-translate\">差不多該出來揭曉真相了吧</span>"
+      },
+      {
+        "no": "04",
+        "name": "Lemon",
+        "artist": "米津玄師 (Full Covered by コバソロ & 春茶)",
+        "ytId": "clU8c2fpk2s",
+        "desc": "あの日の悲しみさえ<br><span class=\"zh-translate\">就連那一天的悲傷</span><br>あの日の苦しみさえ<br><span class=\"zh-translate\">就連那一天的痛苦</span><br>そのすべてを愛してた<br><span class=\"zh-translate\">我都曾深深地珍惜著</span><br>あなたとともに<br><span class=\"zh-translate\">因為那一切，都有你陪伴著</span><br>胸に残り離れない<br><span class=\"zh-translate\">始終留在心裡，無法散去的</span><br>苦いレモンの匂い<br><span class=\"zh-translate\">是那苦澀的檸檬香氣</span><br>雨が降り止むまでは帰れない<br><span class=\"zh-translate\">在雨停之前，我還回不去</span><br>今でもあなたはわたしの光<br><span class=\"zh-translate\">直到現在，你依然是我的光</span>"
+      },
+      {
+        "no": "05",
+        "name": "灰色と青",
+        "artist": "菅田将暉/米津玄師 (Full Covered by コバソロ & 春茶)",
+        "ytId": "9nCkUgTO5x4",
+        "desc": "どれだけ背丈が変わろうとも<br><span class=\"zh-translate\">無論我們長高了多少、成長了多少</span><br>変わらない何かがありますように<br><span class=\"zh-translate\">願仍有一些事物，永遠不會改變</span><br>くだらない面影に励まされ<br><span class=\"zh-translate\">被那些看似微不足道的往日身影鼓舞著</span><br>今も歌う今も歌う今も歌う<br><span class=\"zh-translate\">直到現在，我依然歌唱著、依然歌唱著、依然歌唱著</span>"
+      }
+    ]
+  },
   "theme-09": {
     "id": "theme-09",
     "title": "歌單推薦 - Aimer",
