@@ -7,7 +7,7 @@ const themeData = {
     "id": "theme-10",
     "title": "春茶 - 從翻唱開始的歌手夢",
     "coverImg": "img/theme/春茶cover.png",
-    "playlistUrl": "https://www.youtube.com/playlist?list=PL0GKCkSU2vniKufOPiKZAcabz26r1KmMO",
+    "playlistUrl": "https://www.youtube.com/@%E9%9F%B3%E6%A8%82%E5%B9%BD%E6%B5%AE/playlists",
     "tag": "#HARUTYA SELECTION",
     "review": "說起歌曲的 cover<br>不知大家腦中第一個想到的歌手是誰呢<br>如果說有那麼一個代表人物<br>那我的回答會是這名歌手---春茶<br><br>早在 2013 年就開始在 Niconico 動畫及 YouTube 陸續上傳翻唱作品。<br><br>而有趣的是<br>在 2017 年後<br>她與作曲家 kobasolo 的合作讓她大放異彩<br>甜美的歌聲<br>配上與原曲不同的編曲風格<br>讓聽眾們有煥然一新的感受<br>我想，這也是 cover 帶給我的意義<br><br>對於翻唱歌曲（Cover）這件事，大家最在乎的特質是什麼呢？<br>是希望能聽到超越原唱的驚艷，還是喜歡截然不同的編曲？<br>歡迎在下方留言，與大家一同討論！<br><br>那以下是這次的歌單",
     "songs": [
@@ -52,7 +52,7 @@ const themeData = {
     "id": "theme-09",
     "title": "歌單推薦 - Aimer",
     "coverImg": "img/theme/Aimer.jpg",
-    "playlistUrl": "https://www.youtube.com/playlist?list=PL0GKCkSU2vniKufOPiKZAcabz26r1KmMO",
+    "playlistUrl": "https://www.youtube.com/@%E9%9F%B3%E6%A8%82%E5%B9%BD%E6%B5%AE/playlists",
     "tag": "#AIMER SELECTION",
     "review": "Aimer，讀做「欸美」，在法文中為「愛」的意思。從小開始學習鋼琴與練習吉他，在海外生活也讓她於英文作詞方面投入很大心力。十五歲時，因為過度使用喉嚨聲帶發痛，被迫採用沉默治療法，聲帶損傷至今仍未痊癒，但也造就了 Aimer 現在獨特而迷人的砂啞聲線。<br><br>2011年以單曲正式出道。2013年起與澤野弘之等作曲家合作，2016年起更與不同音樂人連動推出風格多變的專輯《daydream》，打破以往的世界觀。隨後正式進入主流市場，並為許多知名動漫（如《鬼滅之刃》、《命運停駐之夜》）獻唱主題曲。<br><br>Aimer 的歌聲與曲風，都非常適合在夜晚時播放。雖然聲音聽起來柔弱，但也有如《black bird》般充滿爆發力的曲目。還記得第一次聽到《Ref:rain》進入副歌時，我整個人都起了雞皮疙瘩。<br><br>你也喜歡 Aimer 嗎？你對 Aimer 印象最深的歌是什麼呢？歡迎分享！",
     "songs": [
@@ -97,7 +97,7 @@ const themeData = {
     "id": "theme-08",
     "title": "畢業季 - 畢業快樂!",
     "coverImg": "img/theme/畢業.jpg",
-    "playlistUrl": "https://www.youtube.com/playlist?list=PL0GKCkSU2vniKufOPiKZAcabz26r1KmMO",
+    "playlistUrl": "https://www.youtube.com/@%E9%9F%B3%E6%A8%82%E5%B9%BD%E6%B5%AE/playlists",
     "tag": "#GRADUATION SELECTION",
     "review": "不知不覺<br>又到了鳳凰花開的時候(?<br>不論你是準備<br>邁向職場，正在迷惘<br>或是準備進入高中大學<br>都予以準備邁向人生下一階段的你一段祝福！<br><br>畢業季都聽什麼歌呢？<br>或是你想到了誰<br>想讓他知道<br>都歡迎在底下留言分享",
     "songs": [
@@ -142,7 +142,7 @@ const themeData = {
     "id": "theme-07",
     "title": "青澀系少女歌手- ユイカ",
     "coverImg": "img/theme/yuika.jpg",
-    "playlistUrl": "https://www.youtube.com/@yuika_singuitar",
+    "playlistUrl": "https://www.youtube.com/@%E9%9F%B3%E6%A8%82%E5%B9%BD%E6%B5%AE/playlists",
     "tag": "#YUIKA SELECTION",
     "review": "來自日本年僅21歲的創作歌手ユイカ<br><br>一首好きだから<br>唱出了多少位少年少女那酸澀的心情<br>2024年與日本環球音樂簽約後正式主流出道後<br>隨後的幾首新歌<br>更是可以聽出ユイカ對於人生的看法<br>面對感情的糾結<br>人生的迷惘<br>未來的方向<br>喜歡大聲歌唱的心情<br>現在 讓我們一同進入他的歌曲中<br><br>好久沒有聽到ユイカ的直播了<br>ユイカ如果能多開直播就好<br>希望有買到票的人能夠聽的開心！",
     "songs": [
@@ -187,7 +187,7 @@ const themeData = {
     "id": "theme-01",
     "title": "日本邪氣少年 - Eve",
     "coverImg": "img/theme/Eve.jpg",
-    "playlistUrl": "https://www.youtube.com/playlist?list=PL0GKCkSU2vniKufOPiKZAcabz26r1KmMO",
+    "playlistUrl": "https://www.youtube.com/@%E9%9F%B3%E6%A8%82%E5%B9%BD%E6%B5%AE/playlists",
     "tag": "#EVE SELECTION",
     "review": "由V家出身的日本創作歌手Eve即將來台演出啦<br>多變的曲風 正太般的歌聲<br>獨特且神秘的世界觀 <br>略帶中毒性的歌詞<br>描繪不同觸動人心的故事<br><br>Eve是我當初會開始聽JPOP原因之一<br>入坑曲是《お気に召すまま》<br>到後來的《君に世界》<br>咒術第一季的主題曲<br><br>在做這篇貼文時特別有感觸<br>彷彿像是回到了剛入坑的時候<br>那種純粹想要分享音樂的悸動<br><br>現在 讓我們一同進入他的歌曲中",
     "songs": [
@@ -232,7 +232,7 @@ const themeData = {
     "id": "theme-02",
     "title": "鬍子男髭男dism即將來台演出！",
     "coverImg": "img/theme/髭男.jpg",
-    "playlistUrl": "https://www.youtube.com/playlist?list=PL0GKCkSU2vnitKo3595aWIdJOiv5ejKxO",
+    "playlistUrl": "https://www.youtube.com/@%E9%9F%B3%E6%A8%82%E5%B9%BD%E6%B5%AE/playlists",
     "tag": "#HIGEDAN SELECTION",
     "review": "Good bye<br>《pretender》相信這首歌大家都不陌生<br><br>2019年以一首《pretender》走紅的男子樂團<br>髭男dism<br>唱出了不少人的心聲<br>對於戀情的不捨無奈<br>嘗試靠近又不敢靠近<br><br>這首pretender成功的讓髭男打開知名度<br>第一次登上紅白歌合戰的舞台<br>其後也陸續為日劇《戀愛可以持續到天長地久》《Silent》<br>動漫《東京復仇者》《SPY×FAMILY 間諜家家酒》<br>創作主題曲<br>開始走入大家的眼中<br><br>而髭男的主要成員是由<br>曾經擔任銀行行員的主唱-藤原聰<br>吉他手小笹大輔（158cm<br>貝斯楢崎誠<br>鼓手松浦匡希所組成<br>團名意思為「即使到了適合留鬍子的年紀也要繼續創作讓人心動的音樂」。<br>髭念作ㄗ即為鬍子 粉絲也會稱他們為鬍子男<br>(至少我是啦<br><br>髭男dism即將來台灣拉<br>這次將於8月29、30日 在台北小巨蛋演出<br>喜歡鬍子男的朋友們千萬不要錯過拉!<br><br>Yearly / Monthly Membership 優先預購 <br>2026年03月31日(二)中午12點 至 04月06日(一)晚間23:59止(請以日本時間為準)<br>預購詳情與方式請上官網：https://event.higedan.com/<br>公開售票：2026年04月16日(四)中午12點(台灣時間)<br><br>那以下是這次的歌單",
     "songs": [
@@ -277,7 +277,7 @@ const themeData = {
     "id": "theme-03",
     "title": "大叔系樂團back number即將來台演出！",
     "coverImg": "img/theme/back number.jpg",
-    "playlistUrl": "https://www.youtube.com/playlist?list=PL0GKCkSU2vnjp3H71WIGmIY4f2bW7dI-o",
+    "playlistUrl": "https://www.youtube.com/@%E9%9F%B3%E6%A8%82%E5%B9%BD%E6%B5%AE/playlists",
     "tag": "#BACK NUMBER SELECTION",
     "review": "由主唱清水依與吏<br>貝斯手小島和也<br>鼓手栗原壽三位音樂人所組成<br>唱片公司為日本環球唱片<br>在2011年4月6日以單曲《花瓣》正式主流出道<br>並以一首《クリスマスソング》為人所知<br><br>不論是青澀時期時的戀愛感《高嶺の花子さん》<br>單戀時感到孤獨的《HAPPY BIRTHDAY》<br>尋求幸福定義《瞬き》<br>努力朝著夢想前進的《水平線》<br>以及我最喜歡的《ベルベットの詩》<br>對我來說<br>這個歌單更像是一段旅程<br>每首歌都帶我度過了 不同的自己<br>聽著back number的歌<br>總是都能帶給我很多 對於人生的看法<br>現在 讓我一同來欣賞 來自日本的大叔樂團 back number吧<br><br>大叔系樂團back number即將來台演出！你該知道的歌單<br><br>back number即將舉辦亞洲巡迴拉<br>這次將於8/22，8/23在台北小巨蛋演出<br>是首次back number的海外演出!<br>喜歡他們的朋友們千萬不要錯過拉<br>有興趣的朋友們可以鎖定官網https://www.tickettw.com/<br><br>那以下是這次的歌單",
     "songs": [
@@ -322,7 +322,7 @@ const themeData = {
     "id": "theme-04",
     "title": "邪氣樂團 King gnu 牛羚之王",
     "coverImg": "img/theme/King Gnu.jpg",
-    "playlistUrl": "https://www.youtube.com/playlist?list=PL0GKCkSU2vniDduuyXTbiQrZfzgSqb_pK",
+    "playlistUrl": "https://www.youtube.com/@%E9%9F%B3%E6%A8%82%E5%B9%BD%E6%B5%AE/playlists",
     "tag": "#KING GNU SELECTION",
     "review": "有在接觸jpop的各位想必對King gnu並不陌生<br>跟同時期的鬍子男相比<br>King gnu 則是充滿了滿滿的邪氣<br>不過也有像《BOY》那樣孩子氣的曲風<br>主唱井口理和常田大希一高一低的嗓音配合<br>更是讓樂曲更豐富的元素<br><br>gnu這個單字可以翻譯為非洲水牛或是牛羚<br>有時我都會叫他們牛羚之王<br>希望這個歌單能讓大家更深入了解King gnu<br><br>那以下是這次的歌單",
     "songs": [
@@ -367,7 +367,7 @@ const themeData = {
     "id": "theme-05",
     "title": "慎入!讓腦袋放空休息",
     "coverImg": "img/theme/relax.jpg",
-    "playlistUrl": "https://www.youtube.com/playlist?list=PL0GKCkSU2vng1BWRSQWD11j5bznaZ8PO2",
+    "playlistUrl": "https://www.youtube.com/@%E9%9F%B3%E6%A8%82%E5%B9%BD%E6%B5%AE/playlists",
     "tag": "#RELAXING SELECTION",
     "review": "最近特別忙碌<br>有時候又想甚麼不做只廢在床上<br>那以下是這次的歌單<br>(有人知道最後一首《君の前だと溶けちゃうの》的最後一句該怎麼翻嗎<br><br>siip又開始活動了，有人知道原因嗎<br><br>❗歌單連結放在主頁",
     "songs": [
@@ -419,7 +419,7 @@ const themeData = {
     "id": "theme-06",
     "title": "歌單推薦 - 優里",
     "coverImg": "img/theme/Yuuri.jpg",
-    "playlistUrl": "https://www.youtube.com/playlist?list=PL0GKCkSU2vnho5VMBVhwSMbBDJrKZ5WFa",
+    "playlistUrl": "https://www.youtube.com/@%E9%9F%B3%E6%A8%82%E5%B9%BD%E6%B5%AE/playlists",
     "tag": "#YUURI SELECTION",
     "review": "出道的故事<br><br>曾在正式出道前組過樂團<br>在樂團解散後開始在街頭邊演唱<br>當他在澀谷路口演唱〈花-0714-〉時<br>MY FIRST STORY該團主唱Hiro現身並加入演唱第二段<br>同年在MY FIRST STORY舉辨的演唱會中<br>邀請了優里做為嘉賓<br>並演唱了かくれんぼ這首由他自己作詞作曲的歌<br>以此為契機<br>正式開始音樂活動<br><br>正式主流出道<br><br>以ピーターパン在索尼音樂主流出道<br>隨後更是發佈了讓優里聲勢水漲船高的ドライフラワー<br>也因為這首歌<br>讓優里正式進入了大家的眼簾<br>在短短的四個月中<br>就突破了一億次播放<br>是日本史上第三快的<br><br>其他的故事<br><br>優里同時是個Youtuber<br>在他的頻道中偶爾可以看到不同的內容<br>像是找其他歌手去KTV挑戰他們的成名曲<br>歌曲翻唱 吉他教學<br>甚至還有拳擊?<br><br>你心中一定要推薦給朋友或是覺得必聽的歌是哪首呢<br>歡迎在下方留言分享讓我們知道",
     "songs": [

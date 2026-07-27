@@ -303,7 +303,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         ${songsHtml}
                         <div class="playlist-link-section">
                             <p>探索完整歌單</p>
-                            <a href="https://www.youtube.com/@%E9%9F%B3%E6%A8%82%E5%B9%BD%E6%B5%AE" target="_blank" class="yt-button">
+                            <a href="https://www.youtube.com/@%E9%9F%B3%E6%A8%82%E5%B9%BD%E6%B5%AE/playlists" target="_blank" class="yt-button">
                                 <i class="fab fa-youtube"></i>
                                 <span>LISTEN ON YOUTUBE</span>
                             </a>
@@ -568,7 +568,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     ${songsHtml}
                     <div class="playlist-link-section">
                         <p>探索完整歌單</p>
-                        <a href="${data.playlistUrl || 'https://www.youtube.com/@%E9%9F%B3%E6%A8%82%E5%B9%BD%E6%B5%AE'}" target="_blank" class="yt-button">
+                        <a href="${data.playlistUrl || 'https://www.youtube.com/@%E9%9F%B3%E6%A8%82%E5%B9%BD%E6%B5%AE/playlists'}" target="_blank" class="yt-button">
                              <i class="fab fa-youtube"></i>
                              <span>LISTEN ON YOUTUBE</span>
                         </a>
