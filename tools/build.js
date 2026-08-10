@@ -19,7 +19,7 @@ const pages = [
     name: 'index.html',
     title: '音樂幽浮 | J-POP日文歌推薦與中日歌詞翻譯對照',
     description: '音樂幽浮是專注於J-POP日文歌推薦與熱門日本音樂中日歌詞翻譯對照的獨立誌。收錄米津玄師、YOASOBI、Aimer、tuki.、星街すいせい等歌手熱門單曲推薦與歌詞賞析。',
-    canonical: `${baseUrl}/index.html`,
+    canonical: `${baseUrl}/`,
     contentFile: 'index.content.html',
     bgLogo: true,
     scripts: ['script.js'],
