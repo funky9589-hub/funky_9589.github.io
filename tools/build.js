@@ -34,8 +34,8 @@ const pages = [
   },
   {
     name: 'monthly.html',
-    title: '2026日文歌推薦與熱門歌曲中日歌詞翻譯 | 音樂幽浮',
-    description: '2026年最新J-POP日文歌推薦，提供米津玄師《烏》、SHO-SENSEI!!《プラネタリウム》、春茶、tuki.等熱門單曲中文歌詞對照與賞析。',
+    title: '2026下半年日文歌推薦與熱門歌曲中日歌詞翻譯 | 音樂幽浮',
+    description: '2026年最新J-POP日文歌推薦，提供suis from ヨルシカ《猫日》、ロクデナシ《ホウキボシ》、米津玄師《夜鷹》、ZUTOMAYO《無花果煙》等熱門單曲中文歌詞對照與賞析。',
     canonical: `${baseUrl}/monthly.html`,
     contentFile: 'monthly.content.html',
     bgLogo: false,
@@ -43,10 +43,23 @@ const pages = [
     structuredData: {
       "@context": "https://schema.org",
       "@type": "MusicPlaylist",
-      "name": "2026年日文歌推薦歌單",
-      "numTracks": 30,
-      "genre": "J-POP",
-      "description": "收錄2026年最值得聆聽的熱門J-POP歌曲與歌詞翻譯"
+      "name": "2026下半年日文歌推薦歌單",
+      "genre": "J-POP"
+    }
+  },
+  {
+    name: 'monthly-2026-h1.html',
+    title: '2026上半年日文歌推薦與經典歌曲歌詞翻譯 | 音樂幽浮',
+    description: '2026上半年經典日文歌曲推薦與中文歌詞對照，涵蓋米津玄師《烏》、ヨルシカ《あぶく》、tuki.、星街すいせい等熱門單曲。',
+    canonical: `${baseUrl}/monthly-2026-h1.html`,
+    contentFile: 'monthly-2026-h1.content.html',
+    bgLogo: false,
+    scripts: ['data-2026-h1.js', 'script.js'],
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "MusicPlaylist",
+      "name": "2026上半年日文歌推薦歌單",
+      "genre": "J-POP"
     }
   },
   {
@@ -182,6 +195,7 @@ const ${varName} = ${JSON.stringify(jsonData, null, 2)};
 }
 
 compileDataFile('monthly-2026.json', 'data.js', 'monthlyData');
+compileDataFile('monthly-2026-h1.json', 'data-2026-h1.js', 'monthlyData');
 compileDataFile('monthly-2025-h2.json', 'data-2025-h2.js', 'monthlyData');
 compileDataFile('monthly-2025-h1.json', 'data-2025-h1.js', 'monthlyData');
 compileDataFile('theme-data.json', 'theme-data.js', 'themeData');

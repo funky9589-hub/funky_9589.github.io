@@ -8,6 +8,7 @@ const baseUrl = 'https://funky9589-hub.github.io/funky_9589.github.io';
 const pages = [
   { path: '', priority: '1.0' },
   { path: 'monthly.html', priority: '0.8' },
+  { path: 'monthly-2026-h1.html', priority: '0.7' },
   { path: 'monthly-2025-h2.html', priority: '0.7' },
   { path: 'monthly-2025-h1.html', priority: '0.7' },
   { path: 'playlist.html', priority: '0.8' },
