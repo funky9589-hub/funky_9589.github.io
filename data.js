@@ -3,6 +3,69 @@
    ========================================= */
 
 const monthlyData = {
+  "month-08": {
+    "id": "month-08",
+    "title": "2026 8月",
+    "coverImg": "img/monthly/2026/08.jpg",
+    "tag": "#2026 AUGUST SELECTION",
+    "review": "八月結束拉<br>學生們要迎來開學了<br><br>這個月新歌的數量<br>跟暴雨一樣的日子特別的多<br><br>那以下是這次的歌單<br>嚴格來說，不完全是J-pop",
+    "songs": [
+      {
+        "no": "01",
+        "name": "777",
+        "artist": "YAO",
+        "avatar": "",
+        "ytId": "OJoZX6W77qI",
+        "desc": "Chased the world<br><span class=\"zh-translate\">追逐世界</span><br>Let’s take the chosen squad and break into<br><span class=\"zh-translate\">帶上被選中的夥伴，一起闖入</span><br>未開拓領域<br><span class=\"zh-translate\">尚未開拓的領域</span><br>Don't be afraid Go all in<br><span class=\"zh-translate\">不要害怕 全力以赴吧</span>",
+        "date": "2026.08"
+      },
+      {
+        "no": "02",
+        "name": "恋する神様",
+        "artist": "Penthouse",
+        "avatar": "",
+        "ytId": "md1_y2vqRJU",
+        "desc": "SOS恋する神様<br><span class=\"zh-translate\">SOS，戀愛之神啊</span><br>言いたい言えない破裂しそうだよ<br><span class=\"zh-translate\">想說卻說不出口，簡直快要爆炸了</span><br>止められないやめられない恋わずらい<br><span class=\"zh-translate\">這無法停止、也無法放棄的相思病</span>",
+        "date": "2026.08"
+      },
+      {
+        "no": "03",
+        "name": "オリオン!",
+        "artist": "YOASOBI × Overwatch",
+        "avatar": "",
+        "ytId": "EjaQdBcF6K4",
+        "desc": "夜空に寄り添い並ぶ あの星のように<br><span class=\"zh-translate\">在夜空中相依並列的 就像那兩顆星星一樣</span><br>きっときっと 本当は二人<br><span class=\"zh-translate\">一定、一定 其實我們兩個人</span><br>ずっとずっと 想い合っていたのに<br><span class=\"zh-translate\">一直、一直 明明始終都彼此思念著對方</span>",
+        "date": "2026.08"
+      },
+      {
+        "no": "04",
+        "name": "Bubble",
+        "artist": "tuki.",
+        "avatar": "",
+        "ytId": "5ZdJlEYRTMw",
+        "desc": "（*強烈建議大家都給我去聽原版的-`д´-）<br><br>弾ける恋ならそれでもいい<br><span class=\"zh-translate\">即使這是一段終將破裂的戀情，也沒關係</span><br>泡になるまで笑っていたい<br><span class=\"zh-translate\">在化作泡沫之前，我想一直笑著</span><br>君となら笑えるよって 君のこと諦めやしないから<br><span class=\"zh-translate\">因為只要和你在一起，我就能笑著面對一切，所以我絕對不會放棄你</span>",
+        "date": "2026.08"
+      },
+      {
+        "no": "05",
+        "name": "残酷になりますように",
+        "artist": "ユイカ",
+        "avatar": "",
+        "ytId": "Xs7DfpykDtw",
+        "desc": "（*這次ユイカ的新曲歌詞非常值得細細品味！）<br><br>貴方がいる世界で 宝くじが当たりますように<br><span class=\"zh-translate\">在有你存在的這個世界裡 希望你能幸運地中獎</span><br>貴方が観たがっていたアニメが 第10期くらい続きますように<br><span class=\"zh-translate\">希望你一直想看的那部動畫 能一路推出到第 10 季左右</span><br>幸せに過ごしてね、風邪に気をつけてね。<br><span class=\"zh-translate\">希望你能幸福地生活，也要小心別感冒了。</span>",
+        "date": "2026.08"
+      },
+      {
+        "no": "06",
+        "name": "GG EZ",
+        "artist": "M.Sasuke",
+        "avatar": "",
+        "ytId": "kgAVoL49H3M",
+        "desc": "Fucking EZ 負けたつもりはないけどね<br><span class=\"zh-translate\">簡單得不得了 我可沒有要認輸的意思呢</span><br>Fucking EZ 簡単に惚れたの?笑<br><span class=\"zh-translate\">這麼輕易就喜歡上我了？笑</span><br>Low HP 恋したのかも<br><span class=\"zh-translate\">血量見底 也許是真的陷入愛河了也說不定</span><br>Toxic 生意気な口に Kiss me キスをして<br><span class=\"zh-translate\">帶著毒性 對這張傲嬌的嘴唇 吻下去吧</span>",
+        "date": "2026.08"
+      }
+    ]
+  },
   "month-07": {
     "id": "month-07",
     "title": "2026 7月",
