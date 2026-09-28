@@ -187,7 +187,9 @@ const artistAvatarDB = {
   "アンジェラ・アキ": "https://yt3.googleusercontent.com/uVFIUMEkOyR51ZBm9JIdt1b_yuILPcg1mh5LXbRFb3PkJtzKwOYBZf6ghPj5mOIYXvLm4r7r=s900-c-k-c0x00ffffff-no-rj",
   "優里 × tuki.": "https://yt3.googleusercontent.com/2j-yd5HnUHfzfbaptBikd2RVnGbzG6aQIycm8bT4RIz-beNCkwJsN2HVTQreEds014WOMrM5=s160-c-k-c0x00ffffff-no-rj",
   "春茶": "https://yt3.googleusercontent.com/MA6jb039EieBeuKkzpvoW5WFOSypV66mCqyrgUyjh1_qoKBhm3aiYqtAVU0l1zkJ-t1e0DOP=s900-c-k-c0x00ffffff-no-rj",
-  "SHO-SENSEI!!": "https://yt3.googleusercontent.com/42DTdBoRhn-lJLHBuMq3-lkQu09N7HZwcMrrr4qD-LN8d7SniakXHMOZP7nyf8YpuNZlePQR=s900-c-k-c0x00ffffff-no-rj"
+  "SHO-SENSEI!!": "https://yt3.googleusercontent.com/42DTdBoRhn-lJLHBuMq3-lkQu09N7HZwcMrrr4qD-LN8d7SniakXHMOZP7nyf8YpuNZlePQR=s900-c-k-c0x00ffffff-no-rj",
+  "suis from ヨルシカ": "https://yt3.googleusercontent.com/ytc/AIdro_kVKEa-EG-3DL3jnIwzZ13S4zo8G57by8Gq-nJLBOcuqg=s160-c-k-c0x00ffffff-no-rj",
+  "NELKE": "https://yt3.googleusercontent.com/z1iZExUfacmI4NsqTsQJo9WhCwBlev5KJq9e7RJahSYYhPVk7d17oCt0nBlSWM-Qwcc_G0AZpWI=s900-c-k-c0x00ffffff-no-rj"
 };
 
 // --- 3. 主要初始化邏輯 ---
