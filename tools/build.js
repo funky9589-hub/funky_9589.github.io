@@ -22,7 +22,7 @@ const pages = [
     canonical: `${baseUrl}/`,
     contentFile: 'index.content.html',
     bgLogo: true,
-    scripts: ['script.js'],
+    scripts: ['search-index.js', 'script.js'],
     structuredData: {
       "@context": "https://schema.org",
       "@type": "WebSite",
@@ -39,7 +39,7 @@ const pages = [
     canonical: `${baseUrl}/monthly.html`,
     contentFile: 'monthly.content.html',
     bgLogo: false,
-    scripts: ['data.js', 'script.js'],
+    scripts: ['search-index.js', 'data.js', 'script.js'],
     structuredData: {
       "@context": "https://schema.org",
       "@type": "MusicPlaylist",
@@ -54,7 +54,7 @@ const pages = [
     canonical: `${baseUrl}/monthly-2026-h1.html`,
     contentFile: 'monthly-2026-h1.content.html',
     bgLogo: false,
-    scripts: ['data-2026-h1.js', 'script.js'],
+    scripts: ['search-index.js', 'data-2026-h1.js', 'script.js'],
     structuredData: {
       "@context": "https://schema.org",
       "@type": "MusicPlaylist",
@@ -69,7 +69,7 @@ const pages = [
     canonical: `${baseUrl}/monthly-2025-h2.html`,
     contentFile: 'monthly-2025-h2.content.html',
     bgLogo: false,
-    scripts: ['data-2025-h2.js', 'script.js'],
+    scripts: ['search-index.js', 'data-2025-h2.js', 'script.js'],
     structuredData: {
       "@context": "https://schema.org",
       "@type": "MusicPlaylist",
@@ -84,7 +84,7 @@ const pages = [
     canonical: `${baseUrl}/monthly-2025-h1.html`,
     contentFile: 'monthly-2025-h1.content.html',
     bgLogo: false,
-    scripts: ['data-2025-h1.js', 'script.js'],
+    scripts: ['search-index.js', 'data-2025-h1.js', 'script.js'],
     structuredData: {
       "@context": "https://schema.org",
       "@type": "MusicPlaylist",
@@ -99,7 +99,7 @@ const pages = [
     canonical: `${baseUrl}/playlist.html`,
     contentFile: 'playlist.content.html',
     bgLogo: false,
-    scripts: ['theme-data.js', 'script.js'],
+    scripts: ['search-index.js', 'theme-data.js', 'script.js'],
     structuredData: {
       "@context": "https://schema.org",
       "@type": "MusicPlaylist",
@@ -114,7 +114,7 @@ const pages = [
     canonical: `${baseUrl}/shorts.html`,
     contentFile: 'shorts.content.html',
     bgLogo: false,
-    scripts: ['script.js'],
+    scripts: ['search-index.js', 'script.js'],
     structuredData: {
       "@context": "https://schema.org",
       "@type": "ItemPage",
@@ -199,6 +199,74 @@ compileDataFile('monthly-2026-h1.json', 'data-2026-h1.js', 'monthlyData');
 compileDataFile('monthly-2025-h2.json', 'data-2025-h2.js', 'monthlyData');
 compileDataFile('monthly-2025-h1.json', 'data-2025-h1.js', 'monthlyData');
 compileDataFile('theme-data.json', 'theme-data.js', 'themeData');
+
+// 2.b Generate unified 全站搜尋索引 search-index.js
+console.log('\nGenerating site-wide search index (search-index.js)...');
+const searchItems = [];
+
+const monthlyConfigs = [
+  { file: 'monthly-2026.json', targetPage: 'monthly.html' },
+  { file: 'monthly-2026-h1.json', targetPage: 'monthly-2026-h1.html' },
+  { file: 'monthly-2025-h2.json', targetPage: 'monthly-2025-h2.html' },
+  { file: 'monthly-2025-h1.json', targetPage: 'monthly-2025-h1.html' }
+];
+
+monthlyConfigs.forEach(cfg => {
+  const filePath = path.join(workspaceDir, 'src/data', cfg.file);
+  if (fs.existsSync(filePath)) {
+    const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+    for (const [monthKey, monthData] of Object.entries(data)) {
+      if (monthData.songs && Array.isArray(monthData.songs)) {
+        monthData.songs.forEach(song => {
+          searchItems.push({
+            type: 'monthly',
+            name: song.name,
+            artist: song.artist,
+            desc: song.desc || '',
+            ytId: song.ytId || '',
+            date: song.date || monthData.title,
+            sourceTitle: monthData.title,
+            coverImg: monthData.coverImg || '',
+            url: `${cfg.targetPage}#${monthKey}`
+          });
+        });
+      }
+    }
+  }
+});
+
+// Add theme playlists
+const themeFilePath = path.join(workspaceDir, 'src/data/theme-data.json');
+if (fs.existsSync(themeFilePath)) {
+  const themeData = JSON.parse(fs.readFileSync(themeFilePath, 'utf-8'));
+  for (const [themeKey, theme] of Object.entries(themeData)) {
+    if (theme.songs && Array.isArray(theme.songs)) {
+      theme.songs.forEach(song => {
+        searchItems.push({
+          type: 'theme',
+          name: song.name,
+          artist: song.artist,
+          desc: song.desc || '',
+          ytId: song.ytId || '',
+          date: theme.tag || '主題歌單',
+          sourceTitle: theme.title,
+          coverImg: theme.coverImg || '',
+          url: `playlist.html#${themeKey}`
+        });
+      });
+    }
+  }
+}
+
+const searchJsContent = `/* =========================================
+   音樂幽浮 - 全站搜尋索引庫 (請勿手動編輯此檔案)
+   ========================================= */
+
+const siteSearchIndex = ${JSON.stringify(searchItems, null, 2)};
+`;
+
+fs.writeFileSync(path.join(workspaceDir, 'search-index.js'), searchJsContent, 'utf-8');
+console.log(`- Generated search-index.js with ${searchItems.length} total search items`);
 
 // 3. Compile script.js (injecting artist-avatars.json)
 console.log('\nInjecting artist avatars into script.js...');

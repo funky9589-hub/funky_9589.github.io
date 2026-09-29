@@ -575,4 +575,216 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
+
+    // === 10. 全站即時搜尋功能 (Site-Wide Instant Search) ===
+    const searchModal = document.getElementById('search-modal');
+    const searchTriggerBtn = document.getElementById('search-trigger-btn');
+    const searchCloseBtn = document.getElementById('search-close-btn');
+    const searchInput = document.getElementById('site-search-input');
+    const searchClearBtn = document.getElementById('search-clear-btn');
+    const searchResultsContainer = document.getElementById('search-results-container');
+    const searchStats = document.getElementById('search-stats');
+
+    function openSearchModal() {
+        if (!searchModal) return;
+        searchModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        if (searchInput) {
+            setTimeout(() => searchInput.focus(), 150);
+        }
+    }
+
+    function closeSearchModal() {
+        if (!searchModal) return;
+        searchModal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    if (searchTriggerBtn) {
+        searchTriggerBtn.addEventListener('click', openSearchModal);
+    }
+    if (searchCloseBtn) {
+        searchCloseBtn.addEventListener('click', closeSearchModal);
+    }
+    if (searchModal) {
+        searchModal.addEventListener('click', (e) => {
+            if (e.target === searchModal) closeSearchModal();
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && searchModal && searchModal.classList.contains('active')) {
+            closeSearchModal();
+        }
+    });
+
+    // 清除按鈕處理
+    if (searchClearBtn && searchInput) {
+        searchClearBtn.addEventListener('click', () => {
+            searchInput.value = '';
+            searchClearBtn.style.display = 'none';
+            searchInput.focus();
+            renderSearchResults('');
+        });
+    }
+
+    // 快捷標籤點擊
+    document.querySelectorAll('.quick-tag-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const query = btn.getAttribute('data-query');
+            if (searchInput && query) {
+                searchInput.value = query;
+                if (searchClearBtn) searchClearBtn.style.display = 'block';
+                renderSearchResults(query);
+            }
+        });
+    });
+
+    // 搜尋輸入監聽
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            const val = e.target.value.trim();
+            if (searchClearBtn) {
+                searchClearBtn.style.display = val ? 'block' : 'none';
+            }
+            renderSearchResults(val);
+        });
+    }
+
+    // 搜尋比對與 DOM 渲染
+    function renderSearchResults(rawQuery) {
+        if (!searchResultsContainer) return;
+
+        const query = rawQuery.trim().toLowerCase();
+        if (!query) {
+            if (searchStats) searchStats.style.display = 'none';
+            searchResultsContainer.innerHTML = `
+                <div class="search-placeholder">
+                    <i class="fas fa-search-location search-placeholder-icon"></i>
+                    <p>搜尋音樂幽浮全站收錄的所有 J-POP 歌曲與主題專輯</p>
+                    <div class="search-quick-tags">
+                        <span class="quick-title">熱門搜尋：</span>
+                        <button class="quick-tag-btn" data-query="米津玄師">米津玄師</button>
+                        <button class="quick-tag-btn" data-query="YOASOBI">YOASOBI</button>
+                        <button class="quick-tag-btn" data-query="tuki.">tuki.</button>
+                        <button class="quick-tag-btn" data-query="AKASAKI">AKASAKI</button>
+                        <button class="quick-tag-btn" data-query="Aimer">Aimer</button>
+                    </div>
+                </div>
+            `;
+            // 重新綁定新生成的 Quick Tag 按鈕
+            searchResultsContainer.querySelectorAll('.quick-tag-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const q = btn.getAttribute('data-query');
+                    if (searchInput && q) {
+                        searchInput.value = q;
+                        if (searchClearBtn) searchClearBtn.style.display = 'block';
+                        renderSearchResults(q);
+                    }
+                });
+            });
+            return;
+        }
+
+        if (typeof siteSearchIndex === 'undefined' || !Array.isArray(siteSearchIndex)) {
+            searchResultsContainer.innerHTML = `<div class="search-placeholder"><p>搜尋資料庫載入中...</p></div>`;
+            return;
+        }
+
+        // 開始進行全站搜尋匹配
+        const matches = siteSearchIndex.filter(item => {
+            const nameMatch = item.name.toLowerCase().includes(query);
+            const artistMatch = item.artist.toLowerCase().includes(query);
+            const descMatch = item.desc.toLowerCase().includes(query);
+            const sourceMatch = item.sourceTitle.toLowerCase().includes(query);
+            return nameMatch || artistMatch || descMatch || sourceMatch;
+        });
+
+        if (searchStats) {
+            searchStats.style.display = 'block';
+            searchStats.innerHTML = `找到 <strong style="color: var(--k-gold);">${matches.length}</strong> 首相關歌曲 / 文章標籤`;
+        }
+
+        if (matches.length === 0) {
+            searchResultsContainer.innerHTML = `
+                <div class="search-placeholder">
+                    <i class="far fa-frown search-placeholder-icon"></i>
+                    <p>未找到包含「<span class="search-highlight">${escapeHtml(rawQuery)}</span>」的歌曲或文章，換個關鍵字試試看吧！</p>
+                </div>
+            `;
+            return;
+        }
+
+        // 排序：歌名或歌手完美匹配的排在最前
+        matches.sort((a, b) => {
+            const aNameMatch = a.name.toLowerCase().includes(query);
+            const bNameMatch = b.name.toLowerCase().includes(query);
+            const aArtistMatch = a.artist.toLowerCase().includes(query);
+            const bArtistMatch = b.artist.toLowerCase().includes(query);
+
+            if ((aNameMatch || aArtistMatch) && !(bNameMatch || bArtistMatch)) return -1;
+            if (!(aNameMatch || aArtistMatch) && (bNameMatch || bArtistMatch)) return 1;
+            return 0;
+        });
+
+        // 渲染結果卡片列表
+        let resultsHtml = '';
+        matches.forEach(item => {
+            // 嘗試取得頭像，若無則採用封面
+            const avatarUrl = (typeof artistAvatarDB !== 'undefined' && artistAvatarDB[item.artist]) 
+                ? artistAvatarDB[item.artist] 
+                : (item.coverImg || 'img/logobgmove.png');
+
+            // 乾淨摘要去除 HTML 標籤
+            const cleanDesc = item.desc.replace(/<[^>]*>/g, ' ');
+            
+            // 關鍵字高亮
+            const highlightedName = highlightText(escapeHtml(item.name), query);
+            const highlightedArtist = highlightText(escapeHtml(item.artist), query);
+            const highlightedDesc = highlightText(escapeHtml(cleanDesc), query);
+
+            resultsHtml += `
+                <a href="${item.url}" class="search-result-item" data-url="${item.url}">
+                    <img src="${avatarUrl}" alt="${item.artist}" class="search-item-avatar" loading="lazy">
+                    <div class="search-item-info">
+                        <div class="search-item-header">
+                            <span class="search-song-name">${highlightedName}</span>
+                            <span class="search-artist-name">/ ${highlightedArtist}</span>
+                            <span class="search-source-badge">${item.sourceTitle}</span>
+                        </div>
+                        <div class="search-song-desc">${highlightedDesc}</div>
+                    </div>
+                    <i class="fas fa-arrow-right" style="color: rgba(197, 160, 89, 0.6); font-size: 0.9rem;"></i>
+                </a>
+            `;
+        });
+
+        searchResultsContainer.innerHTML = resultsHtml;
+
+        // 點擊搜尋結果：關閉彈窗並切換
+        searchResultsContainer.querySelectorAll('.search-result-item').forEach(itemBtn => {
+            itemBtn.addEventListener('click', () => {
+                closeSearchModal();
+                const targetUrl = itemBtn.getAttribute('data-url');
+                if (targetUrl) {
+                    const [pageName, targetHash] = targetUrl.split('#');
+                    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+
+                    if (currentPage === pageName || (currentPage === '' && pageName === 'index.html')) {
+                        if (targetHash) {
+                            window.location.hash = targetHash;
+                            if (targetHash.startsWith('month-')) switchMonth(targetHash);
+                            if (pageName === 'playlist.html' && targetHash.startsWith('theme-')) switchTheme(`#${targetHash}`);
+                        }
+                    }
+                }
+            });
+        });
+    }
+
+    function highlightText(text, q) {
+        if (!q) return text;
+        const reg = new RegExp(`(${q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+        return text.replace(reg, '<span class="search-highlight">$1</span>');
+    }
 });

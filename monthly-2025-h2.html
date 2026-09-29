@@ -71,8 +71,44 @@
             </li>
             <li><a href="playlist.html">主題歌單</a></li>
             <li><a href="shorts.html">Shorts</a></li>
+            <li>
+                <button class="nav-search-btn" id="search-trigger-btn" aria-label="全站搜尋">
+                    <i class="fas fa-search"></i> <span>搜尋</span>
+                </button>
+            </li>
         </ul>
     </nav>
+
+    <!-- 全站搜尋彈窗 Modal -->
+    <div id="search-modal" class="search-modal-overlay">
+        <div class="search-modal-container">
+            <div class="search-modal-header">
+                <div class="search-input-wrapper">
+                    <i class="fas fa-search search-input-icon"></i>
+                    <input type="text" id="site-search-input" placeholder="搜尋全站歌曲、歌手（如：米津玄師、YOASOBI、777）..." autocomplete="off">
+                    <button id="search-clear-btn" class="search-clear-btn" style="display: none;"><i class="fas fa-times"></i></button>
+                </div>
+                <button id="search-close-btn" class="search-close-btn"><i class="fas fa-times"></i></button>
+            </div>
+            
+            <div id="search-stats" class="search-stats" style="display: none;"></div>
+            
+            <div id="search-results-container" class="search-results-container">
+                <div class="search-placeholder">
+                    <i class="fas fa-search-location search-placeholder-icon"></i>
+                    <p>搜尋音樂幽浮全站收錄的所有 J-POP 歌曲與主題專輯</p>
+                    <div class="search-quick-tags">
+                        <span class="quick-title">熱門搜尋：</span>
+                        <button class="quick-tag-btn" data-query="米津玄師">米津玄師</button>
+                        <button class="quick-tag-btn" data-query="YOASOBI">YOASOBI</button>
+                        <button class="quick-tag-btn" data-query="tuki.">tuki.</button>
+                        <button class="quick-tag-btn" data-query="AKASAKI">AKASAKI</button>
+                        <button class="quick-tag-btn" data-query="Aimer">Aimer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="page-wrapper">
     <div class="month-selector" id="month-tabs-container"></div>
@@ -82,7 +118,8 @@
         </footer>
     </div>
 
-    <script src="data-2025-h2.js?v=1790666350850"></script>
-    <script src="script.js?v=1790666350850"></script>
+    <script src="search-index.js?v=1790667209914"></script>
+    <script src="data-2025-h2.js?v=1790667209914"></script>
+    <script src="script.js?v=1790667209914"></script>
 </body>
 </html>
