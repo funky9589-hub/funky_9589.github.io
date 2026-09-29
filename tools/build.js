@@ -17,8 +17,8 @@ const baseUrl = 'https://funky9589-hub.github.io/funky_9589.github.io';
 const pages = [
   {
     name: 'index.html',
-    title: '音樂幽浮 | J-POP日文歌推薦與中日歌詞翻譯對照',
-    description: '音樂幽浮是專注於J-POP日文歌推薦與熱門日本音樂中日歌詞翻譯對照的獨立誌。收錄米津玄師、YOASOBI、Aimer、tuki.、星街すいせい等歌手熱門單曲推薦與歌詞賞析。',
+    title: '音樂幽浮 | 你需要的J-POP',
+    description: '音樂幽浮是專注於 J-POP 日文歌推薦與熱門日本音樂中日歌詞翻譯對照的獨立誌。收錄米津玄師、YOASOBI、AKASAKI、Aimer、tuki.、春茶、星街すいせい等歌手熱門單曲推薦與歌詞賞析。',
     canonical: `${baseUrl}/`,
     contentFile: 'index.content.html',
     bgLogo: true,
@@ -27,15 +27,15 @@ const pages = [
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "音樂幽浮",
-      "alternateName": "Funky 9589 J-POP Music",
+      "alternateName": "音樂幽浮 | 你需要的J-POP",
       "url": `${baseUrl}/`,
-      "description": "J-POP日文歌推薦與中日歌詞翻譯對照誌"
+      "description": "音樂幽浮 | 你需要的J-POP"
     }
   },
   {
     name: 'monthly.html',
     title: '2026下半年日文歌推薦與熱門歌曲中日歌詞翻譯 | 音樂幽浮',
-    description: '2026年最新J-POP日文歌推薦，提供suis from ヨルシカ《猫日》、ロクデナシ《ホウキボシ》、米津玄師《夜鷹》、ZUTOMAYO《無花果煙》等熱門單曲中文歌詞對照與賞析。',
+    description: '音樂幽浮 2026 下半年最新 J-POP 日文歌推薦，提供 suis from ヨルシカ《猫日》、ロクデナシ《ホウキボシ》、米津玄師《夜鷹》、ZUTOMAYO《無花果煙》、YAO《777》等熱門單曲中文歌詞對照與賞析。',
     canonical: `${baseUrl}/monthly.html`,
     contentFile: 'monthly.content.html',
     bgLogo: false,
@@ -43,7 +43,7 @@ const pages = [
     structuredData: {
       "@context": "https://schema.org",
       "@type": "MusicPlaylist",
-      "name": "2026下半年日文歌推薦歌單",
+      "name": "音樂幽浮 2026下半年日文歌推薦歌單",
       "genre": "J-POP"
     }
   },
@@ -94,8 +94,8 @@ const pages = [
   },
   {
     name: 'playlist.html',
-    title: '主題歌單推薦 - Aimer專題與熱門動畫主題曲中日歌詞對照 | 音樂幽浮',
-    description: '精選Aimer專題推薦歌單、動漫主題曲中日歌詞對照與賞析，帶來深度J-POP音樂聆聽體驗。',
+    title: '主題歌單推薦 - YOASOBI、AKASAKI、Aimer與春茶特別企劃 | 音樂幽浮',
+    description: '音樂幽浮精選主題歌單，收錄 YOASOBI 來台專題、AKASAKI 爆紅單曲、Aimer 經典企劃與春茶 Cover 歌曲中日歌詞對照賞析。',
     canonical: `${baseUrl}/playlist.html`,
     contentFile: 'playlist.content.html',
     bgLogo: false,
@@ -103,14 +103,14 @@ const pages = [
     structuredData: {
       "@context": "https://schema.org",
       "@type": "MusicPlaylist",
-      "name": "Aimer與動漫主題曲歌單專題",
+      "name": "音樂幽浮 主題歌單專題",
       "genre": "J-POP / Anime"
     }
   },
   {
     name: 'shorts.html',
     title: 'J-POP短影音與熱門短片精選歌曲推薦 | 音樂幽浮',
-    description: '精選J-POP短影音與抖音熱門日文歌曲推薦，快速探索最新流行音樂趨勢。',
+    description: '音樂幽浮精選 J-POP 短影音與 TikTok 熱門日文歌曲推薦，快速探索最新流行音樂趨勢。',
     canonical: `${baseUrl}/shorts.html`,
     contentFile: 'shorts.content.html',
     bgLogo: false,
@@ -118,7 +118,7 @@ const pages = [
     structuredData: {
       "@context": "https://schema.org",
       "@type": "ItemPage",
-      "name": "J-POP 短影音推薦"
+      "name": "音樂幽浮 J-POP 短影音推薦"
     }
   }
 ];
