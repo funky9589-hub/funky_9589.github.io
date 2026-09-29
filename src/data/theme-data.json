@@ -1,4 +1,49 @@
 {
+  "theme-11": {
+    "id": "theme-11",
+    "title": "AKASAKI - 爆紅 TikTok 創作奇才來台開唱！",
+    "coverImg": "img/theme/AKASAKI.jpg",
+    "playlistUrl": "https://www.youtube.com/@%E9%9F%B3%E6%A8%82%E5%B9%BD%E6%B5%AE/playlists",
+    "tag": "#AKASAKI SELECTION",
+    "review": "不知道大家有沒有聽過在抖音上爆紅的《Bunny Girl》<br>這首歌來自現年僅20歲的日本創作歌手--AKASAKI<br><br>2023年9月，當時17歲的AKASAKI在TikTok上傳了一部自彈自唱的影片<br>開始了創作歌手生涯。<br>並於2024年4月，發行了首個數位單曲《弾きこもり》。<br>同年7月AKASAKI在TikTok發布《Bunny Girl》<br>正式發行後一炮而紅<br><br>一直都很喜歡AKASAKI的曲風<br>擅長利用副歌中的節奏帶到開頭<br>讓聽眾的耳朵先被抓住<br>再用重複性強的間奏帶領聽眾一同歌唱<br>我自己常常在背景播放時<br>一不小心就被帶唱了<br><br>而如今AKASAKI要來台再度演出啦!<br><br>登記抽選時間：2026年8月17日（一）13:00〜2026年8月19日（三）13:00<br>更多詳情請關注大鴻藝術BIG ART官方Facebook以及Instagram專頁。<br><br>那以下是這次的歌單",
+    "songs": [
+      {
+        "no": "01",
+        "name": "弾きこもり",
+        "artist": "AKASAKI",
+        "ytId": "n92HOHD5deA",
+        "desc": "2024年4月發行的首張數位單曲，宣告17歲創作歌手生涯起點的吉他彈唱神曲！"
+      },
+      {
+        "no": "02",
+        "name": "Bunny Girl",
+        "artist": "AKASAKI",
+        "ytId": "WwI7hPXZC-Y",
+        "desc": "在TikTok發布後一炮而紅的現象級爆紅神曲，抓耳節奏令人忍不住跟著哼唱！"
+      },
+      {
+        "no": "03",
+        "name": "夏実",
+        "artist": "AKASAKI",
+        "ytId": "-xtsHwsvDyY",
+        "desc": "收錄於首張專輯《last YOUNG》的代表作品，展現濃烈夏日敘事氛圍與獨特歌聲。"
+      },
+      {
+        "no": "04",
+        "name": "TOGE",
+        "artist": "AKASAKI",
+        "ytId": "Z7ICL1ZREnU",
+        "desc": "以「棘」為名，將青春期的迷惘與刺感刻畫得淋漓盡致的情感搖滾作品。"
+      },
+      {
+        "no": "05",
+        "name": "徘徊",
+        "artist": "AKASAKI",
+        "ytId": "lcsOdkPICuQ",
+        "desc": "融合電子與夜色抒情氛圍，描繪在繁華都市霓虹燈下穿梭徘徊的現代孤獨感。"
+      }
+    ]
+  },
   "theme-10": {
     "id": "theme-10",
     "title": "春茶 - 從翻唱開始的歌手夢",
