@@ -416,16 +416,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const themePlaylistsSection = document.getElementById('theme-playlists');
 
     if (themeGridContainer && typeof themeData !== 'undefined') {
-        // 1. 動態渲染首頁 3排1個 的 Grid 卡片
+        // 1. 動態渲染主題歌單列表（單行條列式）
         let gridHtml = '';
         for (const [themeId, data] of Object.entries(themeData)) {
             gridHtml += `
                 <a href="#${themeId}" class="theme-card">
                     <div class="theme-img-wrapper">
                         <img src="${data.coverImg}" alt="${data.title}" loading="lazy">
-                        <div class="theme-hover-overlay"></div>
                     </div>
-                    <h3 class="theme-card-title">${data.title}</h3>
+                    <div class="theme-card-content">
+                        ${data.tag ? `<span class="theme-card-tag">${data.tag}</span>` : ''}
+                        <h3 class="theme-card-title">${data.title}</h3>
+                    </div>
+                    <div class="theme-card-action">
+                        <span>查看歌單</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
                 </a>
             `;
         }
