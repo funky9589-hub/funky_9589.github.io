@@ -729,7 +729,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 渲染結果卡片列表
         let resultsHtml = '';
-        matches.forEach(item => {
+        matches.forEach((item, idx) => {
             // 嘗試取得頭像，若無則採用封面
             const avatarUrl = (typeof artistAvatarDB !== 'undefined' && artistAvatarDB[item.artist]) 
                 ? artistAvatarDB[item.artist] 
@@ -743,8 +743,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const highlightedArtist = highlightText(escapeHtml(item.artist), query);
             const highlightedDesc = highlightText(escapeHtml(cleanDesc), query);
 
+            const delay = Math.min(idx * 0.04, 0.35);
+
             resultsHtml += `
-                <a href="${item.url}" class="search-result-item" data-url="${item.url}">
+                <a href="${item.url}" class="search-result-item" data-url="${item.url}" style="animation-delay: ${delay}s;">
                     <img src="${avatarUrl}" alt="${item.artist}" class="search-item-avatar" loading="lazy">
                     <div class="search-item-info">
                         <div class="search-item-header">
@@ -754,7 +756,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>
                         <div class="search-song-desc">${highlightedDesc}</div>
                     </div>
-                    <i class="fas fa-arrow-right" style="color: rgba(197, 160, 89, 0.6); font-size: 0.9rem;"></i>
+                    <i class="fas fa-arrow-right search-item-arrow"></i>
                 </a>
             `;
         });

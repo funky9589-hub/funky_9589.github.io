@@ -167,12 +167,24 @@ nav {
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
+    animation: pulseSearchIcon 3.5s infinite ease-in-out;
+}
+
+@keyframes pulseSearchIcon {
+    0%, 100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 2px rgba(197, 160, 89, 0.2));
+    }
+    50% {
+        transform: scale(1.15);
+        filter: drop-shadow(0 0 10px rgba(197, 160, 89, 0.7));
+    }
 }
 
 .nav-search-icon-btn:hover {
     color: #ffffff;
-    background: rgba(197, 160, 89, 0.2);
-    transform: scale(1.1);
+    background: rgba(197, 160, 89, 0.25);
+    transform: scale(1.2) rotate(-10deg);
 }
 
 .menu-toggle {
@@ -410,18 +422,17 @@ h1 {
 .menu-icon { font-size: 1.8rem; color: var(--k-gold); margin-bottom: 8px; }
 .menu-title { color: var(--text-white); font-size: 0.9rem; letter-spacing: 1px; }
 
-/* 首頁兩側日系直向水印標語 (填補大螢幕兩側留白) */
+/* 首頁兩側直向英文水印標語 (填補大螢幕兩側留白) */
 .home-vertical-title {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     writing-mode: vertical-rl;
-    text-orientation: upright;
-    font-size: 1.15rem;
-    letter-spacing: 8px;
-    color: rgba(197, 160, 89, 0.18);
-    font-family: "微軟正黑體", serif;
-    font-weight: 300;
+    font-family: 'Times New Roman', serif;
+    font-size: 0.85rem;
+    letter-spacing: 5px;
+    color: rgba(197, 160, 89, 0.25);
+    text-transform: uppercase;
     z-index: 0;
     pointer-events: none;
     user-select: none;
@@ -1277,8 +1288,9 @@ footer {
 .search-modal-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(7, 11, 20, 0.85);
-    backdrop-filter: blur(12px);
+    background: rgba(3, 12, 18, 0.75);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
     z-index: 100000;
     display: flex;
     justify-content: center;
@@ -1286,7 +1298,7 @@ footer {
     padding-top: 10vh;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .search-modal-overlay.active {
     opacity: 1;
@@ -1295,17 +1307,19 @@ footer {
 
 .search-modal-container {
     width: 90%;
-    max-width: 760px;
-    background: rgba(15, 23, 42, 0.95);
-    border: 1px solid rgba(197, 160, 89, 0.4);
-    border-radius: 16px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 30px rgba(197, 160, 89, 0.15);
+    max-width: 720px;
+    background: rgba(5, 22, 32, 0.82);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(197, 160, 89, 0.12);
+    border-radius: 24px;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.65), 0 0 45px rgba(197, 160, 89, 0.1);
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    max-height: 75vh;
-    transform: translateY(-20px) scale(0.98);
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    max-height: 78vh;
+    transform: translateY(-20px) scale(0.95);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .search-modal-overlay.active .search-modal-container {
     transform: translateY(0) scale(1);
@@ -1314,10 +1328,10 @@ footer {
 .search-modal-header {
     display: flex;
     align-items: center;
-    padding: 1.25rem 1.5rem;
-    border-bottom: 1px solid rgba(197, 160, 89, 0.25);
+    padding: 1.4rem 1.5rem 0.8rem 1.5rem;
+    border-bottom: none;
     gap: 1rem;
-    background: rgba(10, 15, 28, 0.6);
+    background: transparent;
 }
 
 .search-input-wrapper {
@@ -1325,21 +1339,28 @@ footer {
     display: flex;
     align-items: center;
     position: relative;
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(197, 160, 89, 0.3);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(197, 160, 89, 0.15);
     border-radius: 30px;
-    padding: 0 1rem;
-    transition: border-color 0.3s ease;
+    padding: 0 1.2rem;
+    backdrop-filter: blur(10px);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .search-input-wrapper:focus-within {
-    border-color: var(--k-gold, #c5a059);
-    box-shadow: 0 0 10px rgba(197, 160, 89, 0.2);
+    border-color: rgba(197, 160, 89, 0.6);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 25px rgba(197, 160, 89, 0.25);
+    transform: scale(1.01);
 }
 
 .search-input-icon {
     color: var(--k-gold, #c5a059);
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     margin-right: 0.75rem;
+    transition: transform 0.3s ease;
+}
+.search-input-wrapper:focus-within .search-input-icon {
+    transform: scale(1.15) rotate(-10deg);
 }
 
 #site-search-input {
@@ -1349,7 +1370,7 @@ footer {
     outline: none;
     color: #fdf5e6;
     font-size: 1.05rem;
-    padding: 0.75rem 0;
+    padding: 0.8rem 0;
 }
 #site-search-input::placeholder {
     color: rgba(240, 213, 151, 0.5);
@@ -1362,40 +1383,47 @@ footer {
     cursor: pointer;
     padding: 5px;
     font-size: 0.9rem;
-    transition: color 0.2s;
+    transition: color 0.2s, transform 0.2s;
 }
 .search-clear-btn:hover {
     color: #fff;
+    transform: scale(1.2);
 }
 
 .search-close-btn {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(197, 160, 89, 0.15);
     color: #f0d597;
-    padding: 0.5rem 0.9rem;
-    border-radius: 8px;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    font-size: 0.9rem;
-    transition: all 0.2s;
+    font-size: 0.95rem;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     flex-shrink: 0;
 }
 .search-close-btn:hover {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(197, 160, 89, 0.25);
     color: #fff;
+    transform: rotate(90deg) scale(1.1);
+    box-shadow: 0 0 15px rgba(197, 160, 89, 0.3);
 }
 
 .search-stats {
-    padding: 0.75rem 1.5rem;
+    padding: 0.5rem 1.5rem 0.8rem 1.5rem;
     font-size: 0.85rem;
-    color: rgba(197, 160, 89, 0.8);
-    border-bottom: 1px solid rgba(197, 160, 89, 0.15);
-    background: rgba(0, 0, 0, 0.2);
+    color: rgba(197, 160, 89, 0.85);
+    border-bottom: none;
+    background: transparent;
 }
 
 .search-results-container {
     flex: 1;
     overflow-y: auto;
-    padding: 1rem 1.5rem;
+    padding: 0.5rem 1.5rem 1.5rem 1.5rem;
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
@@ -1410,13 +1438,23 @@ footer {
 
 .search-placeholder {
     text-align: center;
-    padding: 3rem 1rem;
-    color: rgba(240, 213, 151, 0.7);
+    padding: 2.5rem 1rem;
+    color: rgba(240, 213, 151, 0.75);
 }
 .search-placeholder-icon {
-    font-size: 3rem;
-    color: rgba(197, 160, 89, 0.3);
+    font-size: 3.2rem;
+    color: rgba(197, 160, 89, 0.35);
     margin-bottom: 1rem;
+    animation: floatIcon 3.5s infinite ease-in-out;
+}
+
+@keyframes floatIcon {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-8px) rotate(-6deg);
+    }
 }
 
 .search-quick-tags {
@@ -1425,42 +1463,61 @@ footer {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.6rem;
 }
 .quick-title {
     font-size: 0.85rem;
     color: rgba(255, 255, 255, 0.5);
 }
 .quick-tag-btn {
-    background: rgba(197, 160, 89, 0.1);
-    border: 1px solid rgba(197, 160, 89, 0.3);
-    color: #f0d597;
-    padding: 0.3rem 0.75rem;
-    border-radius: 15px;
+    background: rgba(197, 160, 89, 0.06);
+    border: 1px solid rgba(197, 160, 89, 0.12);
+    color: var(--k-gold-light);
+    padding: 0.45rem 1rem;
+    border-radius: 20px;
     font-size: 0.85rem;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    backdrop-filter: blur(5px);
 }
 .quick-tag-btn:hover {
-    background: var(--k-gold, #c5a059);
-    color: #0b111e;
+    background: var(--k-gold);
+    border-color: var(--k-gold);
+    color: #051923;
+    font-weight: bold;
+    transform: translateY(-3px) scale(1.06);
+    box-shadow: 0 6px 20px rgba(197, 160, 89, 0.4);
 }
 
 .search-result-item {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    padding: 0.85rem 1rem;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(197, 160, 89, 0.15);
+    gap: 1.1rem;
+    padding: 0.9rem 1.2rem;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(197, 160, 89, 0.08);
     text-decoration: none;
-    transition: all 0.25s ease;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    animation: searchItemFadeIn 0.35s ease backwards;
 }
+
+@keyframes searchItemFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
 .search-result-item:hover {
-    background: rgba(197, 160, 89, 0.1);
-    border-color: rgba(197, 160, 89, 0.5);
-    transform: translateX(4px);
+    background: rgba(197, 160, 89, 0.12);
+    border-color: rgba(197, 160, 89, 0.35);
+    transform: translateX(6px) scale(1.01);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35), 0 0 20px rgba(197, 160, 89, 0.15);
 }
 
 .search-item-avatar {
@@ -1469,7 +1526,11 @@ footer {
     border-radius: 50%;
     object-fit: cover;
     flex-shrink: 0;
-    border: 1px solid rgba(197, 160, 89, 0.5);
+    border: 1px solid rgba(197, 160, 89, 0.4);
+    transition: transform 0.3s ease;
+}
+.search-result-item:hover .search-item-avatar {
+    transform: scale(1.1) rotate(5deg);
 }
 
 .search-item-info {
@@ -1493,13 +1554,13 @@ footer {
     font-size: 0.9rem;
 }
 .search-source-badge {
-    background: rgba(197, 160, 89, 0.15);
+    background: rgba(197, 160, 89, 0.12);
     color: var(--k-gold, #c5a059);
     font-size: 0.75rem;
-    padding: 0.15rem 0.5rem;
-    border-radius: 10px;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
     margin-left: auto;
-    border: 1px solid rgba(197, 160, 89, 0.3);
+    border: 1px solid rgba(197, 160, 89, 0.2);
 }
 
 .search-song-desc {
@@ -1513,6 +1574,6 @@ footer {
     color: #ffe082;
     font-weight: bold;
     background: rgba(197, 160, 89, 0.25);
-    padding: 0 2px;
-    border-radius: 2px;
+    padding: 0 4px;
+    border-radius: 3px;
 }
