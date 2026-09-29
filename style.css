@@ -147,6 +147,33 @@ nav {
     50% { border-color: var(--k-gold) }
 }
 
+.nav-right-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    z-index: 1100;
+}
+
+.nav-search-icon-btn {
+    background: transparent;
+    border: none;
+    color: var(--k-gold);
+    font-size: 1.25rem;
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.nav-search-icon-btn:hover {
+    color: #ffffff;
+    background: rgba(197, 160, 89, 0.2);
+    transform: scale(1.1);
+}
+
 .menu-toggle {
     cursor: pointer;
     z-index: 1100;
