@@ -3,6 +3,58 @@
    ========================================= */
 
 const themeData = {
+  "theme-12": {
+    "id": "theme-12",
+    "title": "YOASOBI - 日本最強雙人組合再度來台演出！",
+    "coverImg": "img/theme/YOASOBI.jpg",
+    "playlistUrl": "https://www.youtube.com/@%E9%9F%B3%E6%A8%82%E5%B9%BD%E6%B5%AE/playlists",
+    "tag": "#YOASOBI SELECTION",
+    "review": "日本最強雙人組合YOASOBI再度來台演出!<br><br>由歌手ikura以及Ayase(哎呀誰)所組成<br>ikura動人的聲線搭配Ayase的作詞作曲<br>主打以“小說“改編而來的歌曲<br>每首歌的背後都有相當豐富的世界觀及細節<br><br>而如今YOASOBI要來台再度演出啦!<br>你最期待現場的哪首歌呢?<br><br>【售票及登記抽選資訊】<br>登記抽選時間：9/17（四）中午12：00 ~ 9/20（日）晚上 7：00。<br>更多售票及實名登記抽選相關敬請留意主辦單位各項公告。<br><br>那以下是這次的歌單",
+    "songs": [
+      {
+        "no": "01",
+        "name": "夜に駆ける",
+        "artist": "YOASOBI",
+        "ytId": "x8VYWazR5mE",
+        "desc": "騒がしい日々に笑えない君に 思い付く限り眩しい明日を<br><span class=\"zh-translate\">在喧囂日子裡已無法露出笑容的你 我會把所能想像到的、最耀眼的明日帶給你</span><br>明けない夜に落ちてゆく前に 僕の手を掴んでほら<br><span class=\"zh-translate\">在墜入那個不會天亮的夜晚前 來吧 緊緊地抓住我的手吧</span><br>忘れてしまいたくて閉じ込めた日々も 抱きしめた温もりで溶かすから<br><span class=\"zh-translate\">那些因為想要遺忘，而封閉自我的日子 我會用擁抱的溫度，將它們慢慢融化</span><br>怖くないよいつか日が昇るまで 二人でいよう<br><span class=\"zh-translate\">不用害怕，在太陽再次升起之前 就讓我們兩個人一起度過吧</span>"
+      },
+      {
+        "no": "02",
+        "name": "たぶん",
+        "artist": "YOASOBI",
+        "ytId": "8iuLXODzL04",
+        "desc": "僕らは何回だってきっと そう何年だってきっと<br><span class=\"zh-translate\">我們無論多少次，一定都會 是啊，不論經過多少年，也一定會</span><br>さよならと共に終わるだけなんだ 仕方がないよきっと<br><span class=\"zh-translate\">最終只能伴隨著「再見」而結束 一定也是沒有辦法的事吧</span><br>「おかえり」 思わず零れた言葉は 違うな<br><span class=\"zh-translate\">「歡迎回來。」 不經意脫口而出的這句話 不對啊</span>"
+      },
+      {
+        "no": "03",
+        "name": "舞台に立って",
+        "artist": "YOASOBI",
+        "ytId": "GWDzKel_vuQ",
+        "desc": "さあ 待ちに待った舞台に立って 高鳴る鼓動 挑戦の合図<br><span class=\"zh-translate\">來吧 站上那個期待已久的舞台 高昂的心跳，是挑戰開始的信號</span><br>何度も何度も イメージしてきた どんな自分も超えてみせる<br><span class=\"zh-translate\">一次又一次 早已在腦海裡想像過無數次 我要超越那個曾經的自己</span><br>かさぶたばっかの毎日も 今に繋がっていると思えた<br><span class=\"zh-translate\">那些滿是傷痕與結痂的日子 卻也都與此刻緊緊相連</span><br>そうだ夢に見ていた景色の 目の前に立っているんだ<br><span class=\"zh-translate\">沒錯，曾經只能在夢裡看見的景色 如今，我正站在它的面前</span>"
+      },
+      {
+        "no": "04",
+        "name": "ハルジオン",
+        "artist": "YOASOBI",
+        "ytId": "kzdJkT4kp-A",
+        "desc": "あなたの言葉に頷き信じた私を 一人置き去りに時間は過ぎる<br><span class=\"zh-translate\">曾經點頭相信著你的話的我 被獨自留在原地，而時間仍不停流逝</span><br>見えていたはずの 未来も指の隙間をすり抜けた<br><span class=\"zh-translate\">本來應該看得見的 未來也從指縫之間悄悄溜走</span><br>戻れない日々の欠片と あなたの気配を 今でも探してしまうよ<br><span class=\"zh-translate\">那些再也回不去的日子碎片 以及你的氣息 直到現在，我仍然忍不住尋找著</span><br>まだあの日の二人に手を伸ばしてる<br><span class=\"zh-translate\">我仍然伸出手，試圖觸碰那一天的我們</span>"
+      },
+      {
+        "no": "05",
+        "name": "群青",
+        "artist": "YOASOBI",
+        "ytId": "Y4nEEZwckuU",
+        "desc": "感じたままに描く 自分で選んだその色で<br><span class=\"zh-translate\">按照自己的感受去描繪 用自己親自選擇的色彩</span><br>眠い空気纏う朝に 訪れた青い世界<br><span class=\"zh-translate\">在瀰漫著慵懶氣息的清晨 迎來了一片蔚藍的世界</span><br>好きなものを好きだと言う 怖くて仕方ないけど<br><span class=\"zh-translate\">對喜歡的東西就說喜歡 雖然對此感到無比害怕</span><br>本当の自分 出会えた気がしたんだ<br><span class=\"zh-translate\">但好像能夠跟真正的自己 就此相遇的感覺</span>"
+      },
+      {
+        "no": "06",
+        "name": "アンコール",
+        "artist": "YOASOBI",
+        "ytId": "vcGbefQBvJ4",
+        "desc": "ありふれたあの日々をただ思い返す 終わりが来ることを待つ世界で<br><span class=\"zh-translate\">只是回想著那些平凡的日子 在這個等待終結到來的世界裡</span><br>辛い過去も嫌な記憶も 忘れられないメロディーも<br><span class=\"zh-translate\">無論是痛苦的過去，還是討厭的回憶 以及那些無法忘記的旋律</span><br>今日でさよなら<br><span class=\"zh-translate\">今天，就向它們道別</span>"
+      }
+    ]
+  },
   "theme-11": {
     "id": "theme-11",
     "title": "AKASAKI - 爆紅 TikTok 創作奇才來台開唱！",
@@ -16,14 +68,14 @@ const themeData = {
         "name": "弾きこもり",
         "artist": "AKASAKI",
         "ytId": "n92HOHD5deA",
-        "desc": "2024年4月發行的首張數位單曲，宣告17歲創作歌手生涯起點的吉他彈唱神曲！"
+        "desc": "真面目ぶった音楽で踊る少年がいた<br><span class=\"zh-translate\">有個少年，隨著故作認真的音樂起舞</span><br>それは美しくアマチュアな笑顔<br><span class=\"zh-translate\">那是美麗而青澀的笑容</span><br>真面目ぶった音楽に嫌気が差してんだ<br><span class=\"zh-translate\">對那一本正經的音樂我早已感到厭倦了</span><br>暗い 苦い 今何曜日？ 味が染みた毎日だわ<br><span class=\"zh-translate\">陰沉、苦澀……今天究竟是星期幾？對於日常已感到了麻木</span>"
       },
       {
         "no": "02",
         "name": "Bunny Girl",
         "artist": "AKASAKI",
         "ytId": "WwI7hPXZC-Y",
-        "desc": "在TikTok發布後一炮而紅的現象級爆紅神曲，抓耳節奏令人忍不住跟著哼唱！"
+        "desc": "夜の始まりさ Bunny Girl 誘惑される鼓動に<br><span class=\"zh-translate\">夜晚開始了，Bunny Girl 面對那令人心動的誘惑</span><br>弾け飛ぶ葛藤に愛を乾杯 伝えられなくても<br><span class=\"zh-translate\">為那爆發而出的掙扎，乾杯吧 即使無法傳達心意</span><br>恋の始まりさ Bunny Girl 誰かを穿って 澄んだ君の目を 孕んで<br><span class=\"zh-translate\">這就是戀愛的開始啊，Bunny Girl 深深刺穿某個人的心 懷抱著你那雙清澈的眼眸</span>"
       },
       {
         "no": "03",
@@ -37,14 +89,14 @@ const themeData = {
         "name": "TOGE",
         "artist": "AKASAKI",
         "ytId": "Z7ICL1ZREnU",
-        "desc": "以「棘」為名，將青春期的迷惘與刺感刻畫得淋漓盡致的情感搖滾作品。"
+        "desc": "素敵なひと時を頂戴と願う私にくれるのは<br><span class=\"zh-translate\">我只是渴望得到一段美好的時光 可你給我的</span><br>いつも痛い青紫のベールとため息ばかり<br><span class=\"zh-translate\">卻總是疼痛、青紫色的面紗與一聲聲嘆息</span><br>さよなら これ以上はさ 抱えきれないけど 棘になって離れないから<br><span class=\"zh-translate\">再見了 我已經無法再承受更多了 可那些化作了荊棘，始終無法從心裡拔除</span>"
       },
       {
         "no": "05",
         "name": "徘徊",
         "artist": "AKASAKI",
         "ytId": "lcsOdkPICuQ",
-        "desc": "融合電子與夜色抒情氛圍，描繪在繁華都市霓虹燈下穿梭徘徊的現代孤獨感。"
+        "desc": "夜を徘徊 君だけが咲き誇る 目まぐるしくときめく ワンダーランド<br><span class=\"zh-translate\">徘徊於夜裡唯有你盛放得如此耀眼 在令人目眩神迷、心動不已的夢幻世界</span><br>君と徘徊 意味もなく 手を掴み 目まぐるしくときめき 笑うの<br><span class=\"zh-translate\">與你一同徘徊，毫無理由地牽起你的手 在怦然心動中，相視而笑</span><br>ねぇ いっそのことキスをして この蠢く夜さえ 終わらせて<br><span class=\"zh-translate\">吶，不如乾脆吻我吧 連同這躁動不安的夜晚，一起畫下句點</span>"
       }
     ]
   },
