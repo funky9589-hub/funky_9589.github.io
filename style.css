@@ -110,9 +110,10 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 0 8%;
-    background: rgba(5, 25, 35, 0.85);
-    backdrop-filter: blur(10px);
-    border-bottom: 2px solid var(--k-gold);
+    background: rgba(5, 25, 35, 0.75);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(197, 160, 89, 0.12);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
     position: fixed;
     top: 0; width: 100%;
     z-index: 1000;
@@ -195,10 +196,12 @@ nav {
     position: fixed;
     right: -100%; top: var(--nav-height);
     width: 280px; height: calc(100vh - var(--nav-height));
-    background: rgba(5, 25, 35, 0.98);
+    background: rgba(5, 25, 35, 0.92);
+    backdrop-filter: blur(15px);
     display: flex; flex-direction: column;
     align-items: center; padding-top: 60px;
-    border-left: 1px solid var(--k-gold);
+    border-left: none;
+    box-shadow: -15px 0 35px rgba(0, 0, 0, 0.6);
     list-style: none; transition: var(--transition);
 }
 
@@ -240,8 +243,8 @@ nav {
     left: 0;
     width: 100%;
     height: 50px;
-    background: rgba(5, 25, 35, 0.95);
-    border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+    background: rgba(5, 25, 35, 0.75);
+    border-bottom: 1px solid rgba(197, 160, 89, 0.08);
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -317,7 +320,7 @@ nav {
     min-height: 500px;     
     height: auto;         
     
-    border: 2px solid var(--k-gold);
+    border: none;
     padding: 8px;
     z-index: 1;          
     pointer-events: none; 
@@ -326,10 +329,7 @@ nav {
     will-change: transform, opacity;
 }
 .vintage-frame::before {
-    content: '';
-    position: absolute;
-    top: 5px; left: 5px; right: 5px; bottom: 5px;
-    border: 1px solid var(--k-gold);
+    display: none;
 }
 .frame-content {
     position: relative;
@@ -343,7 +343,7 @@ nav {
     width: 120px; height: 120px;
     border-radius: 50%; border: 2px solid var(--k-gold);
     margin-bottom: 20px; object-fit: cover;
-    box-shadow: 0 0 20px rgba(197, 160, 89, 0.4);
+    box-shadow: 0 0 25px rgba(197, 160, 89, 0.3);
 }
 
 h1 {
@@ -359,14 +359,19 @@ h1 {
 }
 
 .main-start-btn {
-    font-size: 1.2rem; padding: 12px 35px;
-    border: 1px solid var(--k-gold);
-    color: var(--k-gold); text-decoration: none;
+    font-size: 1.2rem; padding: 12px 38px;
+    border: 1px solid rgba(197, 160, 89, 0.5);
+    border-radius: 30px;
+    background: rgba(197, 160, 89, 0.08);
+    backdrop-filter: blur(8px);
+    color: var(--k-gold-light); text-decoration: none;
     transition: var(--transition); cursor: pointer;
+    box-shadow: 0 0 20px rgba(197, 160, 89, 0.15);
 }
 
 .main-start-btn:hover {
     background: var(--k-gold); color: var(--bg-navy);
+    box-shadow: 0 0 30px rgba(197, 160, 89, 0.5);
 }
 
 /* 2x2 選單樣式 */
@@ -387,17 +392,19 @@ h1 {
 
 .menu-card {
     text-decoration: none;
-    border: 1px solid rgba(197, 160, 89, 0.4);
+    border: 1px solid rgba(197, 160, 89, 0.15);
+    border-radius: 12px;
     padding: 25px 15px;
     background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(8px);
     transition: var(--transition);
 }
 
 .menu-card:hover {
-    background: rgba(255, 255, 255, 0.1); 
-    border-color: var(--k-gold);
+    background: rgba(255, 255, 255, 0.08); 
+    border-color: rgba(197, 160, 89, 0.5);
     transform: translateY(-5px) translateZ(0);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
 }
 
 .menu-icon { font-size: 1.8rem; color: var(--k-gold); margin-bottom: 8px; }
@@ -412,8 +419,9 @@ footer {
     color: var(--k-gold);
     font-size: 0.8rem;
     letter-spacing: 2px;
-    border-top: 1px solid rgba(197, 160, 89, 0.2);
-    background: rgba(5, 25, 35, 0.9); 
+    border-top: none;
+    background: rgba(5, 25, 35, 0.75); 
+    backdrop-filter: blur(10px);
     width: 100%;
     position: relative;
     z-index: 10; 
@@ -544,7 +552,7 @@ footer {
 .left-visual {
     flex: 1; /* 佔據左半邊 */
     position: relative;
-    border-right: 1px solid rgba(197, 160, 89, 0.2);
+    border-right: none;
 }
 
 .sticky-wrapper {
@@ -569,13 +577,12 @@ footer {
 .fixed-cover {
     width: 100%;
     max-width: 450px;
-    border: 1px solid var(--k-gold);
-    filter: drop-shadow(0 0 30px rgba(0,0,0,0.5));
+    border: none;
+    box-shadow: 0 0 35px rgba(197, 160, 89, 0.25), 0 15px 35px rgba(0, 0, 0, 0.5);
     z-index: 2;
-    /* 假設您的封面是正方形，設定 1 / 1。若是其他比例可改為如 16 / 9 或 4 / 3 */
     aspect-ratio: 1 / 1; 
     object-fit: cover;
-    border-radius: 4px; /* 稍微加一點圓角讓視覺更柔和 (可選) */
+    border-radius: 8px;
 }
 
 /* 每月推薦圖片語意化容器 */
